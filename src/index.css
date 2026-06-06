@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Future Gates I.T Center Blue & Orange Theme Palette */
+  --color-brand-blue-dark: #00153D;
+  --color-brand-blue: #002A7A;
+  --color-brand-blue-light: #003EAF;
+  --color-brand-orange: #E85A00;
+  --color-brand-orange-dark: #C64E00;
+  --color-brand-red: #d62222;
+  --color-brand-sand: #f0f4fa;
+  --color-brand-charcoal: #111e2f;
+  --color-brand-bg: #F3F4F6;
+
+  /* Aliasing old tokens to ensure seamless backwards-compatibility */
+  --color-brand-green-dark: var(--color-brand-blue-dark);
+  --color-brand-green: var(--color-brand-blue);
+  --color-brand-green-light: var(--color-brand-blue-light);
+  --color-brand-gold: var(--color-brand-orange);
+  --color-brand-gold-dark: var(--color-brand-orange-dark);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-slate-800 font-sans antialiased;
+  }
+}
+
+/* Print simulation for certificates */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-card {
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
