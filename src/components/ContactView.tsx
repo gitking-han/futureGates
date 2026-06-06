@@ -152,7 +152,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
               <div className="space-y-4 text-xs text-slate-600 font-sans">
 
                 <div className="flex items-start gap-3.5">
-                  <MapPin className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Address:</span>
                     <span className="text-slate-500 leading-normal block mt-1">Girot Road Khushab</span>
@@ -160,7 +160,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <Mail className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Email Support:</span>
                     <a
@@ -175,7 +175,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <Phone className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Admission Hotline:</span>
                     <a href="tel:+923016775690" className="text-slate-600 font-mono font-bold hover:text-brand-blue block mt-1">
@@ -186,7 +186,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
                 </div>
 
                 <div className="flex items-start gap-3.5 pt-2 border-t border-slate-50">
-                  <Clock className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
+                  <Clock className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Operation Hours:</span>
                     <span className="text-slate-500 block mt-0.5 leading-normal">Monday - Saturday (09:00 AM - 06:00 PM PST)</span>

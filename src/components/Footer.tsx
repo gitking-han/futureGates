@@ -142,25 +142,25 @@ export const Footer: React.FC<FooterProps> = ({ setTab }) => {
             </h3>
             <ul className="space-y-3 text-xs">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
                 <span className="text-slate-400 leading-relaxed">
                   Khushab, Punjab, Pakistan
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-brand-orange flex-shrink-0" />
+                <Phone className="w-4 h-4 text-brand-orange shrink-0" />
                 <a href="tel:+923016775690" className="text-slate-300 hover:text-brand-orange transition-colors font-mono">
                   +92301-6775690
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-brand-orange flex-shrink-0" />
+                <Mail className="w-4 h-4 text-brand-orange shrink-0" />
                 <a href="mailto:futuregatesitcenter@gmail.com" className="text-slate-300 hover:text-brand-orange transition-colors font-mono">
                   futuregatesitcenter@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5 pt-2">
-                <Shield className="w-4 h-4 text-brand-orange flex-shrink-0" />
+                <Shield className="w-4 h-4 text-brand-orange shrink-0" />
                 <span className="text-[10px] text-brand-orange font-semibold">
                   ISO 9001:2015 Quality Certified
                 </span>
