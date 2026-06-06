@@ -70,7 +70,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
       );
 
       await fetch(
-        'https://formsubmit.co/hanzalarehman125@gmail.com',
+        'https://formsubmit.co/futuregatesitcenter@gmail.com',
         {
           method: 'POST',
           body: formPayload,
