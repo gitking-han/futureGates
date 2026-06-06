@@ -144,7 +144,7 @@ export const Footer: React.FC<FooterProps> = ({ setTab }) => {
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-orange flex-shrink-0 mt-0.5" />
                 <span className="text-slate-400 leading-relaxed">
-                  Rawalpindi, Punjab, Pakistan
+                  Khushab, Punjab, Pakistan
                 </span>
               </li>
               <li className="flex items-center gap-2.5">

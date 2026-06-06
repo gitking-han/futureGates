@@ -155,7 +155,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
                   <MapPin className="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Address:</span>
-                    <span className="text-slate-500 leading-normal block mt-1">Rawalpindi, Punjab, Pakistan</span>
+                    <span className="text-slate-500 leading-normal block mt-1">Girot Road Khushab</span>
                   </div>
                 </div>
 
@@ -190,7 +190,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
                   <div>
                     <span className="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Operation Hours:</span>
                     <span className="text-slate-500 block mt-0.5 leading-normal">Monday - Saturday (09:00 AM - 06:00 PM PST)</span>
-                    <span className="text-[10px] text-brand-orange font-bold block mt-1">Sunday: Closed for Sabbath</span>
+                    <span className="text-[10px] text-brand-orange font-bold block mt-1">Sunday: Closed</span>
                   </div>
                 </div>
 
