@@ -24,7 +24,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
       <div className="relative flex-shrink-0 w-12 h-12">
         <img
           src="/brandlogo.png"
-          alt="Future Gates logo"
+          alt="Future Gates logo" 
           className="w-full h-full object-contain"
         />
       </div>
