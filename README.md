@@ -1,32 +1,122 @@
+# Future Gates IT Centre
+
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <h3>Empowering the Future Through Technology & Education</h3>
+  <p>
+    Professional IT Services • Software Development • Digital Solutions • IT Training & Courses
+  </p>
 </div>
 
-# Run and deploy your AI Studio app
+---
 
-This contains everything you need to run your app locally.
+## About Us
 
-View your app in AI Studio: https://ai.studio/apps/f68fd915-5091-48e3-a71e-955ea40b7ab6
+**Future Gates IT Centre** is a technology and education company dedicated to helping individuals and businesses succeed in the digital world. We provide professional IT services, software solutions, and industry-focused training programs designed to build practical skills and deliver real-world results.
 
-## Run Locally
+Our mission is to bridge the gap between technology and opportunity by offering high-quality services and modern IT education.
 
-**Prerequisites:**  Node.js
+---
 
+## Our Services
 
-1. Install dependencies:
-   `npm install`
-2. Create a `.env` file with your EmailJS keys. See `.env.example` for the required variables.
-3. Run the app:
-   `npm run dev`
+### 💻 Software Development
 
-## EmailJS Contact Form Setup
+* Custom Web Applications
+* Business Management Systems
+* E-Commerce Solutions
+* Database Design & Management
+* API Development & Integration
 
-Use a static email provider like EmailJS to keep the site deployable as a static Vite app on Vercel.
+### 🌐 Web Design & Development
 
-Required env vars in `.env`:
+* Responsive Website Design
+* Corporate Websites
+* Portfolio Websites
+* Landing Pages
+* Website Maintenance & Support
 
-- `VITE_EMAILJS_SERVICE_ID`
-- `VITE_EMAILJS_TEMPLATE_ID`
-- `VITE_EMAILJS_PUBLIC_KEY`
+### 📱 Digital Solutions
 
-After setting them, rebuild or restart `npm run dev` so the form can send emails.
+* IT Consulting
+* Cloud Solutions
+* Technical Support
+* System Optimization
+* Business Automation
+
+### 🎨 Graphic & Digital Media Services
+
+* Logo Design
+* Branding Solutions
+* Social Media Graphics
+* Marketing Materials
+
+---
+
+## IT Courses & Training Programs
+
+We offer practical, industry-oriented training programs for students, professionals, and businesses.
+
+### Available Courses
+
+* Web Development (HTML, CSS, JavaScript, React)
+* Frontend Development
+* Backend Development
+* Full Stack Development
+* Python Programming
+* Database Management
+* UI/UX Design
+* Graphic Design
+* Digital Marketing
+* Microsoft Office & Computer Fundamentals
+* Freelancing & Online Earning Skills
+
+### Why Learn With Us?
+
+* Hands-on Practical Training
+* Experienced Instructors
+* Real-World Projects
+* Career Guidance
+* Professional Learning Environment
+* Certificate Upon Completion
+
+---
+
+## Our Vision
+
+To become a leading IT services and training center that empowers individuals and organizations through innovation, technology, and continuous learning.
+
+---
+
+## Contact Us
+
+### Future Gates IT Centre
+
+📍 Address: *Add Your Office Address Here*
+
+📞 Phone: *Add Contact Number*
+
+📧 Email: *Add Email Address*
+
+🌐 Website: *Add Website URL*
+
+---
+
+## Technologies We Work With
+
+* React
+* TypeScript
+* JavaScript
+* Node.js
+* Express.js
+* MongoDB
+* MySQL
+* HTML5
+* CSS3
+* Tailwind CSS
+* Git & GitHub
+
+---
+
+### Building Skills. Creating Solutions. Shaping the Future.
+
+**Future Gates IT Centre**
