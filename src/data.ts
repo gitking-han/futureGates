@@ -13,7 +13,7 @@ export const COURSES: Course[] = [
     category: 'Technical',
     description: 'Learn essential computer operations, internet usage, typing, file management, and productivity tools.',
     longDescription: 'This foundational digital skills program is designed to guide beginners into professional computer operation. Perfect for students, office helpers, and individuals looking to start an online career, it covers everything from the physical mechanics of hardware to secure file structures, typing efficiency, and modern cloud collaboration suites.',
-    fee: 'PKR 8,500',
+    fee: 'PKR 8,000',
     skillsGained: [
       'Touch Typing Speed (WPM optimization)',
       'Secure File Management & Directories',
