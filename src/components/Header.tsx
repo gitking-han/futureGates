@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
                   onClick={() => handleNavClick(item.id)}
                   id={`nav-btn-${item.id}`}
                   className={`px-4 py-2 text-xs font-bold tracking-wider transition-all duration-300 rounded-md cursor-pointer ${active
-                    ? 'bg-brand-blue text-brand-orange border-b-2 border-brand-orange'
+                    ? 'bg-brand-blue text-white border-b-2 border-brand-orange'
                     : 'text-slate-200 hover:bg-slate-800 hover:text-white'
                     }`}
                 >
@@ -66,13 +66,16 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
               href="https://wa.me/923016775690?text=Hello%20Future%20Gates%20IT%20Center.%20I%20would%20like%20to%20know%20more%20about%20your%20courses%20or%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-white text-slate-800 border-2 border-brand-orange rounded-md shadow-md hover:bg-brand-orange hover:text-white hover:border-white transition-all duration-300"
+              className="group flex items-center gap-2 px-4 py-2 bg-white text-slate-800 border-2 border-brand-orange rounded-md shadow-md hover:text-white hover:border-white transition-all duration-300"
             >
-              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white">
+              <div className="w-8 h-8 rounded-full bg-brand-blue group-hover:bg-white flex items-center justify-center text-white transition-all duration-300">
                 <Phone className="w-4 h-4 text-brand-orange" />
               </div>
+
               <div className="flex flex-col text-left">
-                <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold leading-none">Chat on Whatsapp</span>
+                <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold leading-none">
+                  Chat on Whatsapp
+                </span>
                 <span className="text-xs font-bold font-mono tracking-tight text-brand-blue leading-none mt-1">
                   +92301-6775690
                 </span>

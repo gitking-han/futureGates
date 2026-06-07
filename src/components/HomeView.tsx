@@ -17,23 +17,23 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
 
   return (
     <div className="space-y-16 pb-16">
-      
+
       {/* Dynamic Chalkboard Hero Section */}
       <section className="relative overflow-hidden bg-linear-to-b from-slate-900 via-brand-blue-dark to-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-brand-orange">
         {/* Subtle Decorative Grid */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
-        
+
         {/* Decorative backdrop blobs */}
         <div className="absolute top-1/4 left-10 w-72 h-72 bg-blend-multiply bg-brand-blue opacity-25 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-blend-multiply bg-brand-orange opacity-15 rounded-full blur-3xl" />
 
         <div className="relative max-w-5xl mx-auto text-center space-y-8">
-          
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-brand-orange text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3 py-1 bg-white backdrop-blur-md rounded-full border border-white/20 text-brand-orange text-xs font-semibold tracking-wider uppercase"
           >
             <Flame className="w-4 h-4 text-brand-orange animate-bounce" />
             Empowering Pakistan's Technical Workforce
@@ -45,10 +45,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
           >
-            <span className="block text-brand-orange font-sans font-black drop-shadow-md leading-tight text-center">
+            <span className="block text-white font-sans font-black drop-shadow-md leading-tight text-center">
               TAKE THE FIRST STEP
             </span>
-            <span className="block text-white text-3xl sm:text-4xl md:text-5xl font-semibold mt-2">
+            <span className="block text-brand-orange text-3xl sm:text-4xl md:text-5xl font-semibold mt-2">
               To Knowledge With Us
             </span>
           </motion.h1>
