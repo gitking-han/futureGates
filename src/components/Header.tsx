@@ -68,14 +68,11 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 py-2 bg-white text-slate-800 border-2 border-brand-orange rounded-md shadow-md hover:text-white hover:border-white transition-all duration-300"
             >
-              <div className="w-8 h-8 rounded-full bg-brand-blue group-hover:bg-white flex items-center justify-center text-white transition-all duration-300">
-                <Phone className="w-4 h-4 text-brand-orange" />
+              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white">
+                <Phone className="w-4 h-4 text-brand-orange group-hover:text-white transition-colors duration-300" />
               </div>
-
               <div className="flex flex-col text-left">
-                <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold leading-none">
-                  Chat on Whatsapp
-                </span>
+                <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold leading-none">Chat on Whatsapp</span>
                 <span className="text-xs font-bold font-mono tracking-tight text-brand-blue leading-none mt-1">
                   +92301-6775690
                 </span>
@@ -114,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   className={`w-full text-left px-4 py-3 rounded-lg text-sm font-bold tracking-wide transition-all ${active
-                    ? 'bg-brand-blue text-white border-l-4 border-brand-orange'
+                    ? 'bg-brand-blue text-brand-orange border-l-4 border-brand-orange'
                     : 'text-slate-200 hover:bg-slate-800 hover:text-white'
                     }`}
                 >
