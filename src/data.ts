@@ -579,17 +579,46 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'remittance-billpayments',
-    title: 'Local Financial Remittances & Bill Payments (easy-paisa / JazzCash / Omni)',
-    description: 'Highly secured instant fund transfers, local utility bill payments, and cash deposits and withdrawals services.',
+    title: 'Digital Financial Services & Bill Payments',
+    description: 'Secure money transfers, mobile wallet transactions, utility bill payments, cash deposits, withdrawals, and other branchless banking services.',
     iconName: 'Wallet',
     features: [
-      'Fast sending and receiving of local currency via CNIC or wallets',
-      'Immediate electricity, gas, water, internet, and school bill checkouts',
-      'UBL Omni, HBL Connect, EasyPaisa, and JazzCash agent operations',
-      'Digital voucher printouts and direct sms validation notifications',
-      'Safe environment with instant ledger entry and official receipts'
+      'Instant money transfers through mobile wallets and branchless banking networks',
+      'Electricity, gas, water, internet, education, and other utility bill payments',
+      'Cash deposits, withdrawals, and account-related financial services',
+      'Digital receipts, transaction verification, and SMS confirmations',
+      'Secure transactions with real-time records and official receipts'
     ],
-    techStack: ['EasyPaisa Agent Gateway', 'JazzCash Portal API', 'UBL Omni Systems', 'Fintech Utilities'],
+    techStack: [
+      'Mobile Wallet Services',
+      'Branchless Banking Networks',
+      'Digital Payment Platforms',
+      'Fintech Solutions'
+    ],
+    category: 'local-hub'
+  },
+  
+  {
+    id: 'video-production-management',
+    title: 'Video Editing & YouTube Channel Management',
+    description: 'Professional video editing, short-form content creation, and complete YouTube channel management services for creators, businesses, and brands.',
+    iconName: 'Video',
+    features: [
+      'Professional editing for YouTube videos, podcasts, vlogs, and promotional content',
+      'Creation of engaging Shorts, Reels, and TikTok-style vertical videos',
+      'Custom thumbnails, transitions, motion graphics, and visual enhancements',
+      'YouTube channel setup, optimization, and content publishing',
+      'SEO-friendly titles, descriptions, tags, and playlist organization',
+      'Performance monitoring, audience growth strategies, and channel management support'
+    ],
+    techStack: [
+      'Adobe Premiere Pro',
+      'After Effects',
+      'CapCut',
+      'DaVinci Resolve',
+      'YouTube Studio',
+      'Canva'
+    ],
     category: 'local-hub'
   }
 ];
