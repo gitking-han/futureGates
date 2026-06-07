@@ -114,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
                   className={`w-full text-left px-4 py-3 rounded-lg text-sm font-bold tracking-wide transition-all ${active
-                    ? 'bg-brand-blue text-brand-orange border-l-4 border-brand-orange'
+                    ? 'bg-brand-blue text-white border-l-4 border-brand-orange'
                     : 'text-slate-200 hover:bg-slate-800 hover:text-white'
                     }`}
                 >
