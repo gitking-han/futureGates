@@ -108,6 +108,11 @@ export const Footer: React.FC<FooterProps> = ({ setTab }) => {
                 </button>
               </li>
               <li>
+                <button onClick={() => handleLinkClick('blogs')} className="hover:text-brand-orange hover:underline transition-all cursor-pointer text-slate-400">
+                  Blog Resources
+                </button>
+              </li>
+              <li>
                 <button onClick={() => handleLinkClick('verification')} className="hover:text-brand-orange hover:underline transition-all font-semibold cursor-pointer text-slate-400">
                   Student Verification
                 </button>

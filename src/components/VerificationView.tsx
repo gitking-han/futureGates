@@ -129,9 +129,7 @@ export const VerificationView: React.FC = () => {
           {/* Header block with Deep Navy background and Orange Accent */}
           <div className="bg-brand-blue text-white p-5 sm:p-7 flex flex-col sm:flex-row justify-between items-center gap-4 border-b-4 border-brand-orange">
             <div className="flex items-center gap-4">
-              <div className="p-1 bg-white rounded-full flex-shrink-0">
-                <BrandLogo iconOnly={true} className="w-12 h-12" />
-              </div>
+              <BrandLogo iconOnly={true} />
               <div className="text-center sm:text-left">
                 <h3 className="font-display font-black text-sm sm:text-base tracking-wide whitespace-normal leading-tight">
                   Future Gates I.T Center, Pakistan
@@ -353,7 +351,7 @@ export const VerificationView: React.FC = () => {
               {/* Upper cert identity layout */}
               <div className="flex flex-col items-center text-center space-y-4 pb-6 border-b-2 border-brand-blue/30 relative">
                 
-                <div className="p-1 bg-white rounded-full border-2 border-brand-orange">
+                <div className="bg-white flex items-center justify-center">
                   <BrandLogo iconOnly={true} className="w-16 h-16" />
                 </div>
                 

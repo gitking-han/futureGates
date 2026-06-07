@@ -128,6 +128,31 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ setTab, setSelectedI
         </div>
       </div>
 
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-brand-blue/5 border border-brand-blue/10 rounded-3xl p-6 mb-10 text-slate-800">
+          <p className="text-[10px] uppercase tracking-wider text-brand-blue font-bold mb-3">Payment Information</p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-[12px] leading-relaxed">
+            <div>
+              <span className="block text-slate-500">Bank Name</span>
+              <strong className="block text-slate-900">United Bank Limited (UBL)</strong>
+            </div>
+            <div>
+              <span className="block text-slate-500">Account Title</span>
+              <strong className="block text-slate-900">Future Gates I.T Center</strong>
+            </div>
+            <div>
+              <span className="block text-slate-500">Account #</span>
+              <strong className="block text-slate-900">374981534</strong>
+            </div>
+            <div>
+              <span className="block text-slate-500">IBAN</span>
+              <strong className="block text-slate-900">PK33UNIL0109000374981534</strong>
+            </div>
+          </div>
+          <p className="text-[11px] text-slate-500 mt-4">Use this bank account for service payments, project deposits, and professional outsourcing bookings. Share the payment confirmation with our team after transfer.</p>
+        </div>
+      </section>
+
       {/* Services detailed catalog list */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         {SERVICES.filter((service) => selectedServiceCategory === 'All' || service.category === selectedServiceCategory).map((service) => {

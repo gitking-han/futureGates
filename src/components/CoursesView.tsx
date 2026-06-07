@@ -19,7 +19,7 @@ export const CoursesView: React.FC<CoursesViewProps> = ({ setTab, setSelectedInq
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeAccordionCourse, setActiveAccordionCourse] = useState<string | null>(null);
 
-  const categories = ['All', 'Development', 'Design', 'Technical', 'Short Courses'];
+  const categories = ['All', 'Development', 'Design', 'Technical', 'Artificial Intelligence', 'Short Courses'];
 
   const filteredCourses = COURSES.filter((course) => {
     const matchesSearch =
@@ -111,6 +111,31 @@ export const CoursesView: React.FC<CoursesViewProps> = ({ setTab, setSelectedInq
             />
           </div>
 
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-brand-blue/5 border border-brand-blue/10 rounded-3xl p-6 mb-10 text-slate-800">
+          <p className="text-[10px] uppercase tracking-wider text-brand-blue font-bold mb-3">Payment Information</p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-[12px] leading-relaxed">
+            <div>
+              <span className="block text-slate-500">Bank Name</span>
+              <strong className="block text-slate-900">United Bank Limited (UBL)</strong>
+            </div>
+            <div>
+              <span className="block text-slate-500">Account Title</span>
+              <strong className="block text-slate-900">Future Gates I.T Center</strong>
+            </div>
+            <div>
+              <span className="block text-slate-500">Account #</span>
+              <strong className="block text-slate-900">374981534</strong>
+            </div>
+            <div>
+              <span className="block text-slate-500">IBAN</span>
+              <strong className="block text-slate-900">PK33UNIL0109000374981534</strong>
+            </div>
+          </div>
+          <p className="text-[11px] text-slate-500 mt-4">Use this bank account information to reserve your seat and confirm admission for courses. After payment, please contact us with your transaction details.</p>
         </div>
       </section>
 

@@ -13,10 +13,13 @@ import { CoursesView } from './components/CoursesView';
 import { ServicesView } from './components/ServicesView';
 import { VerificationView } from './components/VerificationView';
 import { ContactView } from './components/ContactView';
+import { BlogsView } from './components/BlogsView';
+import { BlogDetailView } from './components/BlogDetailView';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<string>('home');
   const [prefilledSubject, setPrefilledSubject] = useState<string>('');
+  const [selectedBlogId, setSelectedBlogId] = useState<string>('');
 
   const clearPrefilledSubject = () => {
     setPrefilledSubject('');
@@ -44,6 +47,20 @@ export default function App() {
         );
       case 'verification':
         return <VerificationView />;
+      case 'blogs':
+        return (
+          <BlogsView
+            setTab={setCurrentTab}
+            setSelectedBlogId={setSelectedBlogId}
+          />
+        );
+      case 'blog-detail':
+        return (
+          <BlogDetailView
+            blogId={selectedBlogId}
+            onBack={() => setCurrentTab('blogs')}
+          />
+        );
       case 'contact':
         return (
           <ContactView

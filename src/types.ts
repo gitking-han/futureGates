@@ -7,7 +7,7 @@ export interface Course {
   id: string;
   title: string;
   duration: string; // e.g., "3 Months", "6 Months"
-  category: 'Development' | 'Design' | 'Technical' | 'Short Courses';
+  category: 'Development' | 'Design' | 'Technical' | 'Short Courses' | 'Artificial Intelligence';
   description: string;
   longDescription: string;
   fee: string;
@@ -55,6 +55,19 @@ export interface Testimonial {
   feedback: string;
   rating: number;
   avatarUrl?: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  publishedAt: string;
+  readTime: string;
+  tags: string[];
+  highlight?: string;
+  content: string[];
 }
 
 export interface ContactInquiry {

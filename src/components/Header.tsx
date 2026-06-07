@@ -20,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
     { id: 'about', label: 'ABOUT US' },
     { id: 'courses', label: 'COURSES' },
     { id: 'services', label: 'SERVICES' },
+    { id: 'blogs', label: 'BLOGS' },
     { id: 'verification', label: 'VERIFICATION' },
     { id: 'contact', label: 'CONTACT' },
   ];

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Course, Service, StudentResult, Testimonial } from './types';
+import { BlogPost, Course, Service, StudentResult, Testimonial } from './types';
 
 export const COURSES: Course[] = [
   {
@@ -316,6 +316,31 @@ export const COURSES: Course[] = [
       'Visuals: Generating hyper-realistic illustrations in Midjourney & Stable Diffusion',
       'Automating workflows: Bulk writing content matrices to bulk schedule posts in minutes',
       'Ethics of Artificial Intelligence: Copyright checks and editing outputs'
+    ],
+    featured: true
+  },
+  {
+    id: 'artificial-intelligence',
+    title: 'Artificial Intelligence',
+    duration: '3 Months',
+    category: 'Artificial Intelligence',
+    description: 'Gain practical AI skills in machine learning workflows, automation, generative tools, and business intelligence.',
+    longDescription: 'Learn the fundamentals of modern artificial intelligence from model selection to deployment. This course prepares you for data-driven automation, AI-powered business tools, and practical prompt engineering in real-world workflows.',
+    fee: 'PKR 18,000',
+    skillsGained: [
+      'Prompt engineering for large language models',
+      'Business automation with AI workflows',
+      'Dataset preparation and evaluation',
+      'AI image generation and content automation',
+      'Model deployment basics and performance tuning'
+    ],
+    syllabus: [
+      'Introduction to AI concepts and practical use cases',
+      'Overview of machine learning, neural networks, and model training',
+      'Dataset selection, cleaning, and validation techniques',
+      'Generative AI tools for copywriting, design, and process automation',
+      'Deploying AI workflows and building smart productivity assistants',
+      'Ethics, safety, and responsible AI for business applications'
     ],
     featured: true
   }
@@ -655,6 +680,106 @@ export const TESTIMONIALS: Testimonial[] = [
     courseOrService: 'Computer Information Technology (CIT)',
     feedback: 'The CIT diploma gave me immense confidence. Excel modeling, document design, and office automation are practical. I immediately landed a high-paying administrative coordinator role right after completion!',
     rating: 5
+  }
+];
+
+export const BLOGS: BlogPost[] = [
+  {
+    id: 'blog-ai-tips',
+    title: 'Artificial Intelligence for Small Businesses',
+    excerpt: 'Explore practical AI applications that help local teams automate workflows, improve customer service, and accelerate sales without heavy technical overhead.',
+    category: 'Artificial Intelligence',
+    author: 'Ayesha Khan',
+    publishedAt: 'June 2026',
+    readTime: '4 min read',
+    tags: ['AI', 'Business', 'Automation'],
+    highlight: 'Simple AI tools for faster business results.',
+    content: [
+      'Small businesses can use AI to automate customer replies, schedule appointments, and analyze sales without hiring a full technical team. Tools like chatbots and automated email flows save time and reduce repetitive work.',
+      'Start by identifying the repetitive tasks that take the most time. Common candidates include lead follow-up, quote requests, and invoice reminders. Then pick a simple AI tool that integrates with your current workflow, such as WhatsApp automation or email automation via a business platform.',
+      'AI does not have to be expensive. Use browser-based tools for drafting marketing copy, answering customer questions, and producing proposal templates. You can also leverage spreadsheet automation to summarize sales data and highlight trends without manual formulas.',
+      'Protect your business by using AI tools that respect privacy and do not expose customer data. Keep your prompts simple, validate outputs manually, and build a culture of learning around the new workflow so your team adopts the tools confidently.'
+    ]
+  },
+  {
+    id: 'blog-digital-skills',
+    title: 'Top 5 Digital Skills Employers Want Now',
+    excerpt: 'A quick guide to the most in-demand IT and design skills, including web development, digital marketing, and certification-ready tools.',
+    category: 'Career',
+    author: 'Ali Raza',
+    publishedAt: 'May 2026',
+    readTime: '3 min read',
+    tags: ['Career', 'Skills', 'Training'],
+    content: [
+      'Employers are looking for candidates who can deliver results quickly. The top digital skills right now are web development, graphic design, social media marketing, search engine optimization, and AI-assisted content creation.',
+      'Web development remains strong because every business needs a modern website. Learn basic HTML, CSS, and JavaScript, then build a portfolio project that shows a real landing page or store.',
+      'Digital marketing skills are also in demand. Understanding how to create campaigns on Facebook, Instagram, and Google, combined with an ability to analyze performance, makes a candidate very attractive.',
+      'Finally, being able to work with AI tools to generate copy, design social graphics, or automate tasks is a differentiator. Show employers that you can blend technical skills with productivity tools to create more value.'
+    ]
+  },
+  {
+    id: 'blog-web-design-trends',
+    title: 'Web Design Trends That Convert in 2026',
+    excerpt: 'Learn which website design patterns, accessibility choices, and conversion-led layouts are winning customers this year.',
+    category: 'Design',
+    author: 'Sara Malik',
+    publishedAt: 'April 2026',
+    readTime: '5 min read',
+    tags: ['Web Design', 'UX', 'Conversion'],
+    content: [
+      'Web visitors prefer clear, fast pages with strong visual hierarchy. Use large headlines, clear call-to-action buttons, and concise sections so people can scan quickly and convert faster.',
+      'Accessibility is not optional. Provide good color contrast, readable fonts, and keyboard-friendly navigation. This not only helps all visitors, it also improves search engine trust.',
+      'Use real images or clean illustrations to build trust. A well-designed hero section with a headline, supporting paragraph, and an action button is one of the most effective conversion patterns.',
+      'Keep mobile design a priority. More than half of users browse on phones, so layouts should work on narrow screens with easy touch targets and short text blocks.'
+    ]
+  },
+  {
+    id: 'blog-office-automation',
+    title: 'Office Productivity with MS Office & AI',
+    excerpt: 'From automated Excel dashboards to AI-assisted document workflows, discover how to save hours every week with practical office tools.',
+    category: 'Productivity',
+    author: 'Bilal Ahmed',
+    publishedAt: 'March 2026',
+    readTime: '4 min read',
+    tags: ['MS Office', 'AI', 'Automation'],
+    content: [
+      'MS Office is still one of the best platforms for office automation. Using Excel formulas, templates, and a few built-in shortcuts can improve accuracy and productivity significantly.',
+      'Combine Excel with AI-assisted writing tools to create better reports faster. For example, draft the first version of a summary in the AI assistant, then paste it into Word and format it as a professional document.',
+      'Automate common tasks such as generating invoices, tracking attendance, and preparing monthly summaries. Templates and named ranges in Excel reduce manual work and help maintain a consistent standard.',
+      'As the next step, explore AI tools that can summarize a spreadsheet, generate meeting notes, or draft email replies. This makes your office practice more agile without adding extra headcount.'
+    ]
+  },
+  {
+    id: 'blog-freelance-launch',
+    title: 'Start Freelancing with a Strong Portfolio',
+    excerpt: 'Step-by-step guidance for building a freelancer profile, pitching clients, and winning projects with practical sample work.',
+    category: 'Freelancing',
+    author: 'Mariam Shah',
+    publishedAt: 'February 2026',
+    readTime: '4 min read',
+    tags: ['Freelance', 'Portfolio', 'Clients'],
+    content: [
+      'A strong portfolio is the best way to attract freelance clients. Show real examples of work, even if those are practice projects or mockups, and explain the impact you delivered.',
+      'Choose a clear niche for your profile. For example, website landing pages for local shops, graphic assets for social media, or complete resume packages for job seekers.',
+      'Write a professional profile description that highlights what you do, who you help, and the results clients can expect. Keep the language simple and client-focused.',
+      'Use client-friendly samples and testimonials whenever possible. Even a few well-presented case studies are better than a long list of generic skills.'
+    ]
+  },
+  {
+    id: 'blog-seo-basics',
+    title: 'SEO Essentials for Small Business Websites',
+    excerpt: 'A beginner-friendly SEO checklist that helps local businesses rank faster and show up in search results without paid ads.',
+    category: 'Marketing',
+    author: 'Faisal Khan',
+    publishedAt: 'January 2026',
+    readTime: '3 min read',
+    tags: ['SEO', 'Marketing', 'Organic Traffic'],
+    content: [
+      'SEO begins with a strong website structure and clear headings. Use descriptive page titles, clean URLs, and relevant headings to make your content easier for search engines to index.',
+      'Focus on the customer’s intent. Write short, useful content that answers common questions and solves problems. This improves user experience and helps your pages rank more reliably.',
+      'Add local business information clearly. Include your address, phone number, and operating hours so search engines can match your site to local search queries.',
+      'Use fresh, regular updates when possible. Simple blog posts or news updates help search engines see that your site is active and relevant.'
+    ]
   }
 ];
 
