@@ -69,8 +69,8 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
               rel="noopener noreferrer"
               className="group flex items-center gap-2 px-4 py-2 bg-white text-slate-800 border-2 border-brand-orange rounded-md shadow-md hover:text-white hover:border-white transition-all duration-300"
             >
-              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white">
-                <Phone className="w-4 h-4 text-brand-orange group-hover:text-white transition-colors duration-300" />
+              <div className="w-8 h-8 rounded-full bg-brand-blue flex items-center justify-center text-white group-hover:bg-brand-orange">
+                <Phone className="w-4 h-4 text-white group-hover:text-white transition-colors duration-300" />
               </div>
               <div className="flex flex-col text-left">
                 <span className="text-[9px] uppercase tracking-wider text-slate-500 font-bold leading-none">Chat on Whatsapp</span>

@@ -640,7 +640,7 @@ export const SERVICES: Service[] = [
     ],
     category: 'local-hub'
   },
-  
+
   {
     id: 'video-production-management',
     title: 'Video Editing & YouTube Channel Management',
@@ -664,6 +664,54 @@ export const SERVICES: Service[] = [
       'Canva'
     ],
     category: 'local-hub'
+  },
+  {
+    id: 'ebook-services',
+    title: 'E-Book Writing & Publishing',
+    description: 'Professional e-book writing, design, formatting, and publishing services for authors, educators, and businesses.',
+    iconName: 'BookOpen',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780927099/spencer-DXobXpIa9_4-unsplash_kxk6sj.jpg',
+    features: [
+      'Professional e-book writing & ghostwriting',
+      'Custom cover design & visual branding',
+      'EPUB, PDF & Kindle formatting services',
+      'Publishing assistance on major platforms',
+      'Editing, proofreading & content optimization'
+    ],
+    techStack: ['Kindle Direct Publishing', 'Adobe InDesign', 'Canva Pro', 'EPUB Editor'],
+    category: 'agency'
+  },
+  {
+    id: 'offset-printing',
+    title: 'Offset Printing Services',
+    description: 'High-quality offset, digital, packaging, and specialty printing solutions for businesses, brands, and organizations.',
+    iconName: 'Printer',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780927265/pexels-mathilde-10897656_s4f4ep.jpg',
+    features: [
+      'Offset printing for books, brochures, forms & bulk orders',
+      'Digital printing for personalized and short-run projects',
+      'Flexible packaging printing for boxes, labels & product packaging',
+      'Specialized printing including flexographic & rotogravure solutions',
+      'Premium print quality with fast turnaround times'
+    ],
+    techStack: ['Offset Printing', 'Digital Printing', 'Flexographic Printing', 'Rotogravure Printing'],
+    category: 'agency'
+  },
+  {
+    id: 'excel-templates-projects',
+    title: 'Excel Templates & Automation Projects',
+    description: 'Custom Excel solutions, automated spreadsheets, dashboards, and business templates designed to improve productivity and streamline workflows.',
+    iconName: 'Sheet',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780928149/pexels-goumbik-590022_uavnj0.jpg',
+    features: [
+      'Custom Excel templates for business and personal use',
+      'Automated spreadsheets with formulas and calculations',
+      'Interactive dashboards, reports & data visualization',
+      'Inventory, finance, payroll & project tracking systems',
+      'Excel data cleaning, analysis & workflow optimization'
+    ],
+    techStack: ['Microsoft Excel', 'Power Query', 'Pivot Tables', 'VBA Automation'],
+    category: 'agency'
   }
 ];
 
@@ -799,7 +847,8 @@ export const BLOGS: BlogPost[] = [
       'Add local business information clearly. Include your address, phone number, and operating hours so search engines can match your site to local search queries.',
       'Use fresh, regular updates when possible. Simple blog posts or news updates help search engines see that your site is active and relevant.'
     ]
-  }
+  },
+
 ];
 
 export const STUDENT_RESULTS: StudentResult[] = [

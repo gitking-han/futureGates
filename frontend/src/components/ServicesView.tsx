@@ -28,7 +28,9 @@ import {
   FileSpreadsheet,
   Type,
   Scale,
-  Wallet
+  Wallet,
+  BookOpen,
+  Printer
 } from 'lucide-react';
 import { SERVICES } from '../data';
 
@@ -62,7 +64,9 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ setTab, setSelectedI
     FileSpreadsheet: FileSpreadsheet,
     Type: Type,
     Scale: Scale,
-    Wallet: Wallet
+    Wallet: Wallet,
+    BookOpen: BookOpen,
+    Printer: Printer
   };
 
   return (
