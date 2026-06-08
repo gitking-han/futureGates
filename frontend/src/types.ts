@@ -21,6 +21,7 @@ export interface Service {
   title: string;
   description: string;
   iconName: string; // Lucide icon identifier
+  imageUrl: string;
   features: string[];
   techStack: string[];
   category: 'agency' | 'local-hub';
@@ -58,7 +59,9 @@ export interface Testimonial {
 }
 
 export interface BlogPost {
-  id: string;
+  _id?: string;
+  id?: string;
+  slug?: string;
   title: string;
   excerpt: string;
   category: string;
@@ -68,6 +71,22 @@ export interface BlogPost {
   tags: string[];
   highlight?: string;
   content: string[];
+}
+
+export interface VerificationRecord {
+  _id?: string;
+  candidateName: string;
+  fatherName: string;
+  verificationReference: string;
+  course?: string;
+  courseDuration?: string;
+  trainingSession?: string;
+  trainerName?: string;
+  finalGrade?: string;
+  certificateImage?: string;
+  certificatePdf?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface ContactInquiry {

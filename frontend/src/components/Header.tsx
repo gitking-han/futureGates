@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
           </nav>
 
           {/* Right Action Call */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="https://wa.me/923016775690?text=Hello%20Future%20Gates%20IT%20Center.%20I%20would%20like%20to%20know%20more%20about%20your%20courses%20or%20services."
               target="_blank"

@@ -163,6 +163,14 @@ export const ServicesView: React.FC<ServicesViewProps> = ({ setTab, setSelectedI
               className="bg-white rounded-xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between hover:border-brand-blue/20"
             >
               <div className="space-y-5">
+                <div className="overflow-hidden rounded-3xl shadow-sm">
+                  <img
+                    src={service.imageUrl}
+                    alt={service.title}
+                    className="w-full h-44 sm:h-48 object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
                     <Icon className="w-6 h-6" />

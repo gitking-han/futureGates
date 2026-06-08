@@ -352,6 +352,7 @@ export const SERVICES: Service[] = [
     title: 'Digital Marketing Services',
     description: 'We help businesses increase visibility, generate leads, and achieve measurable growth online.',
     iconName: 'Megaphone',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/f_auto,q_auto/diggity-marketing-SB0WARG16HI-unsplash_2_uhx6os',
     features: [
       'Targeted social media lead generation funnels',
       'High-conversion copywriting & text pitches',
@@ -367,6 +368,7 @@ export const SERVICES: Service[] = [
     title: 'Search Engine Optimization (SEO)',
     description: 'Improve search rankings and attract targeted organic traffic.',
     iconName: 'Search',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780852525/1981-digital-oMe_FjZnHGU-unsplash_gr3jji.jpg',
     features: [
       'Comprehensive keyword research & strategy setups',
       'Technical SEO audit & speed improvements',
@@ -382,6 +384,7 @@ export const SERVICES: Service[] = [
     title: 'Social Media Management',
     description: 'Professional management of Facebook, Instagram, LinkedIn, TikTok, and other social platforms.',
     iconName: 'Users',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780852597/mariia-shalabaieva-HBkpnDVc_Ic-unsplash_v7wopy.jpg',
     features: [
       'Custom visual content designing & brand kits',
       'Algorithmic content calendar schedules preparation',
@@ -397,6 +400,7 @@ export const SERVICES: Service[] = [
     title: 'Facebook & Instagram Advertising',
     description: 'Targeted advertising campaigns designed to generate leads and sales.',
     iconName: 'Target',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780852711/austin-distel-tLZhFRLj6nY-unsplash_yq8auk.jpg',
     features: [
       'Custom demographic segment targeting lists',
       'Highly engaging Carousel & Slide Ads designing',
@@ -412,6 +416,7 @@ export const SERVICES: Service[] = [
     title: 'Google Ads Management',
     description: 'Reach potential customers through highly optimized Google advertising campaigns.',
     iconName: 'TrendingUp',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780852871/1981-digital-MVS3ecBsfmk-unsplash_gh0b8b.jpg',
     features: [
       'Targeted search keyword bid configurations',
       'Stunning display ad vector banner assets design',
@@ -427,6 +432,7 @@ export const SERVICES: Service[] = [
     title: 'Website Design & Development',
     description: 'Professional, responsive, and SEO-friendly websites tailored to your business needs.',
     iconName: 'Laptop',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780852958/ferenc-almasi-eYpcLDXHVb0-unsplash_erk8nl.jpg',
     features: [
       'Stunning layouts built with modern responsive frameworks',
       'Lightning-fast page rendering & code compliance',
@@ -442,6 +448,7 @@ export const SERVICES: Service[] = [
     title: 'Content Creation',
     description: 'High-quality graphics, videos, blogs, and marketing content that engages audiences.',
     iconName: 'Video',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853059/nubelson-fernandes-ZdOsQiwp0Ss-unsplash_iyieft.jpg',
     features: [
       'Kinetic Reels drafting, sound integration & transitions',
       'Aesthetic social post vectors & catalog graphics',
@@ -457,6 +464,7 @@ export const SERVICES: Service[] = [
     title: 'Branding & Identity Design',
     description: 'Logo design, business branding, and visual identity development.',
     iconName: 'Palette',
+    imageUrl: 'https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=900&q=80',
     features: [
       'Exquisite, scalable high-definition business logos',
       'Clean typography & brand rules specification books',
@@ -472,6 +480,7 @@ export const SERVICES: Service[] = [
     title: 'E-Commerce Solutions',
     description: 'Complete setup and management of online stores and digital sales systems.',
     iconName: 'ShoppingCart',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853179/hookle-app-6Pa7l0unTAY-unsplash_l5hhwu.jpg',
     features: [
       'Responsive Shopify & WooCommerce stores construction',
       'Dynamic inventory, SKU counts & prices logging',
@@ -487,6 +496,7 @@ export const SERVICES: Service[] = [
     title: 'Custom Stamps & Seals Maker (سلیپ / مہریں)',
     description: 'Design and manufacturing of custom official stamps, self-inking seals, signatures, and company stamps.',
     iconName: 'Award',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853298/markus-spiske-7PMGUqYQpYc-unsplash_o1rlub.jpg',
     features: [
       'Premium durable self-inking mechanisms & dater stamps',
       'Precision laser-engraved rubber text paths & logo seals',
@@ -502,6 +512,7 @@ export const SERVICES: Service[] = [
     title: 'Wedding & Invitation Cards (شادی کارڈ)',
     description: 'Stunning graphic design layouts and custom printing for wedding cards, family events, and formal invitations.',
     iconName: 'Heart',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853379/lisandro-garcia-UR_SbilElPs-unsplash_qvfkzq.jpg',
     features: [
       'Elegant traditional Urdu calligraphy & modern English scripts',
       'Custom design layouts paired with high-quality card stock',
@@ -517,6 +528,7 @@ export const SERVICES: Service[] = [
     title: 'Bill Books & Cash Memos (بل بکس / کیش میمو)',
     description: 'Bespoke corporate bookkeeping bills, receipts books, transaction logs, and cash memos layouts.',
     iconName: 'Receipt',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853525/sumup-YDe0nOZyLHI-unsplash_pzei4v.jpg',
     features: [
       'Carbonless (NCR) self-copy duplicates & triplicates sheets',
       'Custom logo watermarks, sequential numbering & company credentials',
@@ -532,6 +544,7 @@ export const SERVICES: Service[] = [
     title: 'Professional CV & Resume Design (CV ڈیزائن)',
     description: 'Modern, high-impact resume and CV writing to highlight your skillsets and fast-track job hirings.',
     iconName: 'FileText',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853732/markus-winkler-XKKuY4ottJ0-unsplash_gjzqf4.jpg',
     features: [
       'ATS-compliant clean grid layouts & section pairings',
       'Professional executive summary writing & keywords injection',
@@ -547,6 +560,7 @@ export const SERVICES: Service[] = [
     title: 'Business & Visiting Cards (بزنس کارڈز)',
     description: 'Make a powerful first impression with high-grade, custom-designed commercial corporate business cards.',
     iconName: 'CreditCard',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853604/thlt-lcx-3HcfXr5NC2k-unsplash_ad7sqc.jpg',
     features: [
       'Matte, glossy, and velvet lamination textures available',
       'Spot UV coating, elegant rounded corners, and gold foil borders',
@@ -562,6 +576,7 @@ export const SERVICES: Service[] = [
     title: 'Online Support, Admissions & Job Applications (سرکاری ملازمت فارم)',
     description: 'Expert guidance for university online admissions, scholarship portal filings, and government job registrations.',
     iconName: 'FileSpreadsheet',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853860/samantha-borges-EeS69TTPQ18-unsplash_hkdutm.jpg',
     features: [
       'A-to-Z profile setup on PPSC, FPSC, NTS, OTS, and HEC portals',
       'Precise formatting of digital documents (sizing, compressions)',
@@ -577,6 +592,7 @@ export const SERVICES: Service[] = [
     title: 'Urdu, English, Arabic Composing & Exam Papers (کمپوزنگ)',
     description: 'Professional multilingual text typing, book composing, translation scripts, and school terminal examination sheets.',
     iconName: 'Type',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780853938/kaitlyn-baker-vZJdYl5JVXY-unsplash_e3dsz5.jpg',
     features: [
       'Flawless Nastaliq Urdu layout typography on InPage & MS Word',
       'School examination papers designing with custom marks tally matrices',
@@ -592,6 +608,7 @@ export const SERVICES: Service[] = [
     title: 'Stamp Paper Composing & B-Form Support (اشٹام پیپرز / بے فارم / بورڈ)',
     description: 'Official stamp papers legal drafting, computerized Nadra B-Form form completions, and BISE board files prep.',
     iconName: 'Scale',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780854026/gabrielle-henderson-HJckKnwCXxQ-unsplash_wh7oq0.jpg',
     features: [
       'Legal drafting for land affidavits, lease terms, and agreements',
       'Nadra computerized B-Form verification and entry processing helpers',
@@ -607,6 +624,7 @@ export const SERVICES: Service[] = [
     title: 'Digital Financial Services & Bill Payments',
     description: 'Secure money transfers, mobile wallet transactions, utility bill payments, cash deposits, withdrawals, and other branchless banking services.',
     iconName: 'Wallet',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780854130/mika-baumeister-PZao9UjlbMY-unsplash_dvzujq.jpg',
     features: [
       'Instant money transfers through mobile wallets and branchless banking networks',
       'Electricity, gas, water, internet, education, and other utility bill payments',
@@ -628,6 +646,7 @@ export const SERVICES: Service[] = [
     title: 'Video Editing & YouTube Channel Management',
     description: 'Professional video editing, short-form content creation, and complete YouTube channel management services for creators, businesses, and brands.',
     iconName: 'Video',
+    imageUrl: 'https://res.cloudinary.com/dag8ht8mz/image/upload/v1780854195/peter-stumpf-yk9VXp4W5-Q-unsplash_kqploe.jpg',
     features: [
       'Professional editing for YouTube videos, podcasts, vlogs, and promotional content',
       'Creation of engaging Shorts, Reels, and TikTok-style vertical videos',
