@@ -44,7 +44,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.phone || !formData.email || !formData.message) {
+    if (!formData.name || !formData.phone || !formData.message) {
       return;
     }
 
@@ -245,10 +245,9 @@ export const ContactView: React.FC<ContactViewProps> = ({ prefilledSubject, clea
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wide block">Email</label>
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wide block">Email (Optional)</label>
                   <input
                     type="email"
-                    required
                     name="email"
                     placeholder="Active Email Address"
                     value={formData.email}
