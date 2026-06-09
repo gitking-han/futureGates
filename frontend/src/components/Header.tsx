@@ -17,11 +17,11 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setTab }) => {
 
   const navItems = [
     { id: 'home', label: 'HOME' },
-    { id: 'about', label: 'ABOUT US' },
     { id: 'courses', label: 'COURSES' },
+    { id: 'verification', label: 'VERIFICATION' },
     { id: 'services', label: 'SERVICES' },
     { id: 'blogs', label: 'BLOGS' },
-    { id: 'verification', label: 'VERIFICATION' },
+    { id: 'about', label: 'ABOUT US' },    
     { id: 'contact', label: 'CONTACT' },
   ];
 
