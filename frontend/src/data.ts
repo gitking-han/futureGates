@@ -294,30 +294,26 @@ export const COURSES: Course[] = [
     featured: false
   },
   {
-    id: 'ai-tools',
-    title: 'Artificial Intelligence Tools',
+    id: 'accounting-courses',
+    title: 'Accounting Courses',
     duration: '3 Months',
     category: 'Short Courses',
-    description: 'Learn modern AI tools for business, content creation, automation, productivity, and digital marketing.',
-    longDescription: 'Amplify your output speed with cutting-edge artificial intelligence. Master prompt engineering, custom model fine-tuning, bulk spreadsheet analytics, and AI graphic asset creation.',
-    fee: 'PKR 12,000',
+    description: 'Learn bookkeeping, accounting fundamentals, financial statements, and Excel techniques for accountants.',
+    longDescription: 'A practical accounting program covering core bookkeeping practices, financial reporting, reconciliation, and Excel skills tailored for accounting workflows. Ideal for beginners and office staff aiming to handle day-to-day financial tasks.',
+    fee: 'PKR 10,000',
     skillsGained: [
-      'Aesthetic Prompt Engineering layouts',
-      'Fine-tuning custom agent assistants',
-      'AI Voicing & cloning setup options',
-      'Automated spreadsheet formulas script writing',
-      'Midjourney & Canva AI artwork design',
-      'Bulk campaigns auto-scheduling systems'
+      'Basic bookkeeping and ledger management',
+      'Preparing income statements and balance sheets',
+      'Bank reconciliation and petty cash handling',
+      'Excel for accounting: formulas, pivot tables, and reporting'
     ],
     syllabus: [
-      'Core LLM architectures & prompt parameters',
-      'Mastering prompt techniques: Zero-shot, Few-shot & Chain-of-Thought formulas',
-      'AI Copywriting: Drafting sales copies, SEO blogs, and captions with Gemini/GPT',
-      'Visuals: Generating hyper-realistic illustrations in Midjourney & Stable Diffusion',
-      'Automating workflows: Bulk writing content matrices to bulk schedule posts in minutes',
-      'Ethics of Artificial Intelligence: Copyright checks and editing outputs'
+      'Introduction to accounting principles and terminology',
+      'Recording transactions: Journals and ledgers',
+      'Financial statements: Preparation and analysis',
+      'Practical Excel for accounting and reporting'
     ],
-    featured: true
+    featured: false
   },
   {
     id: 'artificial-intelligence',
@@ -328,6 +324,12 @@ export const COURSES: Course[] = [
     longDescription: 'Learn the fundamentals of modern artificial intelligence from model selection to deployment. This course prepares you for data-driven automation, AI-powered business tools, and practical prompt engineering in real-world workflows.',
     fee: 'PKR 18,000',
     skillsGained: [
+      'Aesthetic Prompt Engineering layouts',
+      'Fine-tuning custom agent assistants',
+      'AI Voicing & cloning setup options',
+      'Automated spreadsheet formulas script writing',
+      'Midjourney & Canva AI artwork design',
+      'Bulk campaigns auto-scheduling systems',
       'Prompt engineering for large language models',
       'Business automation with AI workflows',
       'Dataset preparation and evaluation',
@@ -335,6 +337,12 @@ export const COURSES: Course[] = [
       'Model deployment basics and performance tuning'
     ],
     syllabus: [
+      'Core LLM architectures & prompt parameters',
+      'Mastering prompt techniques: Zero-shot, Few-shot & Chain-of-Thought formulas',
+      'AI Copywriting: Drafting sales copies, SEO blogs, and captions with Gemini/GPT',
+      'Visuals: Generating hyper-realistic illustrations in Midjourney & Stable Diffusion',
+      'Automating workflows: Bulk writing content matrices to bulk schedule posts in minutes',
+      'Ethics of Artificial Intelligence: Copyright checks and editing outputs',
       'Introduction to AI concepts and practical use cases',
       'Overview of machine learning, neural networks, and model training',
       'Dataset selection, cleaning, and validation techniques',
