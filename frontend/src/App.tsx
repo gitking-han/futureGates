@@ -19,6 +19,9 @@ import { AdminLoginView } from './components/AdminLoginView';
 import { AdminDashboardView } from './components/AdminDashboardView';
 import { AdminBlogsPage } from './components/AdminBlogsPage';
 import { AdminVerificationPage } from './components/AdminVerificationPage';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { TermsAndConditions } from './components/TermsAndConditions';
+import { Disclaimer } from './components/Disclaimer';
 import { setAuthToken } from './services/api';
 
 const pathToTab = (pathname: string, token: string | null) => {
@@ -42,6 +45,12 @@ const pathToTab = (pathname: string, token: string | null) => {
       return token ? 'admin-blogs' : 'admin-login';
     case '/admin/verification':
       return token ? 'admin-verification' : 'admin-login';
+    case '/privacy':
+      return 'privacy';
+    case '/terms':
+      return 'terms';
+    case '/disclaimer':
+      return 'disclaimer';
     default:
       return 'home';
   }
@@ -68,6 +77,12 @@ const tabToPath = (tab: string) => {
       return '/admin/blogs';
     case 'admin-verification':
       return '/admin/verification';
+    case 'privacy':
+      return '/privacy';
+    case 'terms':
+      return '/terms';
+    case 'disclaimer':
+      return '/disclaimer';
     default:
       return '/';
   }
@@ -193,6 +208,12 @@ export default function App() {
             setTab={setTab}
           />
         );
+      case 'privacy':
+        return <PrivacyPolicy />;
+      case 'terms':
+        return <TermsAndConditions />;
+      case 'disclaimer':
+        return <Disclaimer />;
       default:
         return <HomeView setTab={setCurrentTab} />;
     }
@@ -221,7 +242,7 @@ export default function App() {
       </main>
 
       {/* Dynamic Footer Component */}
-      <Footer setTab={setCurrentTab} />
+      <Footer setTab={setTab} />
 
     </div>
   );

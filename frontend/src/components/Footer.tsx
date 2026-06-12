@@ -125,8 +125,32 @@ export const Footer: React.FC<FooterProps> = ({ setTab }) => {
             </ul>
           </div>
 
-          {/* Course list */}
+          {/* Legal Pages */}
           <div className="space-y-4">
+            <h3 className="text-white text-xs font-bold tracking-widest uppercase border-l-2 border-brand-orange pl-2">
+              Legal Pages
+            </h3>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <button onClick={() => handleLinkClick('privacy')} className="hover:text-brand-orange hover:underline transition-all cursor-pointer text-slate-400">
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleLinkClick('terms')} className="hover:text-brand-orange hover:underline transition-all cursor-pointer text-slate-400">
+                  Terms & Conditions
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleLinkClick('disclaimer')} className="hover:text-brand-orange hover:underline transition-all cursor-pointer text-slate-400">
+                  Disclaimer
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Course list */}
+          {/* <div className="space-y-4">
             <h3 className="text-white text-xs font-bold tracking-widest uppercase border-l-2 border-brand-orange pl-2">
               Our IT Programs
             </h3>
@@ -138,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({ setTab }) => {
               <li>• Diploma in Information Technology (DIT)</li>
               <li>• Computer Information Technology (CIT)</li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contacts info */}
           <div className="space-y-4">
