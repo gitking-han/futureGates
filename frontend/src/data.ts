@@ -317,7 +317,7 @@ export const COURSES: Course[] = [
   },
   {
     id: 'artificial-intelligence',
-    title: 'Artificial Intelligence',
+    title: 'Artificial Intelligence & Tools',
     duration: '3 Months',
     category: 'Artificial Intelligence',
     description: 'Gain practical AI skills in machine learning workflows, automation, generative tools, and business intelligence.',
