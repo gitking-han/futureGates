@@ -27,10 +27,19 @@ export const updateStudentActivityAd = async (
   if (payload.description) form.append('description', payload.description);
   if (payload.imageFile) form.append('image', payload.imageFile);
 
-  const { data } = await apiClient.put<StudentActivityAd>(`/api/student-activity-ads/${id}`, form, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
-  return data;
+  try {
+    const { data } = await apiClient.put<StudentActivityAd>(`/api/student-activity-ads/${id}`, form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return data;
+  } catch (err: any) {
+    // If the record was deleted on the server (404), fall back to creating a new one
+    if (err?.response?.status === 404) {
+      const created = await createStudentActivityAd({ description: payload.description ?? '', imageFile: payload.imageFile });
+      return created;
+    }
+    throw err;
+  }
 };
 
 export const deleteStudentActivityAd = async (id: string): Promise<void> => {

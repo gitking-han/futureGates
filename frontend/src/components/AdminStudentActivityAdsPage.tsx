@@ -67,7 +67,13 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
     try {
       if (editId) {
         const updated = await updateStudentActivityAd(editId, { description: description.trim(), imageFile: imageFile ?? undefined });
-        setItems((prev) => prev.map((item) => (item._id === updated._id ? updated : item)));
+        setItems((prev) => {
+          const exists = prev.some((item) => item._id === updated._id);
+          if (exists) return prev.map((item) => (item._id === updated._id ? updated : item));
+          // If the update fell back to create (server returned 404), insert the created record
+          return [updated, ...prev.filter((item) => item._id !== editId)];
+        });
+        setEditId(updated._id ?? '');
         setActionMessage('Section updated successfully.');
       } else {
         // Prefer update-only. If no section exists, instruct admin to initialize.
@@ -95,6 +101,9 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
       await deleteStudentActivityAd(id);
       setItems((prev) => prev.filter((item) => item._id !== id));
       setActionMessage('Section deleted successfully.');
+      if (editId === id) {
+        resetForm();
+      }
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Unable to delete section.');
     } finally {
