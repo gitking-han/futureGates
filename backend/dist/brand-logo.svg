@@ -1,0 +1,52 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Future Gates IT Center Logo">
+  <path
+d="M 100,5 
+               C 112,5 114,11 125,11 C 136,11 138,5 149,7 C 160,9 159,16 169,21 C 179,26 176,33 184,40 C 192,47 186,53 192,62 C 198,71 190,76 193,86 C 196,96 191,102 191,112 C 191,122 196,128 193,138 C 190,148 198,153 192,162 C 186,171 192,177 184,184 C 176,191 179,198 169,203 C 159,208 160,215 149,217 C 138,219 136,213 125,213 C 114,213 112,219 100,219 C 88,219 86,213 75,213 C 64,213 62,219 51,217 C 40,215 41,208 31,203 C 21,198 24,191 16,184 C 8,177 14,171 8,162 C 2,153 10,148 7,138 C 4,128 9,122 9,112 C 9,102 4,96 7,86 C 10,76 2,71 8,62 C 14,53 8,47 16,40 C 24,33 21,26 31,21 C 41,16 40,9 51,7 C 62,5 64,11 75,11 C 86,11 88,5 100,5 Z"
+    fill="#002D62"/>
+  <circle cx="100" cy="100" r="88" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+  <circle cx="100" cy="100" r="84" stroke="#ffffff" stroke-width="1" stroke-dasharray="3,3" fill="none" opacity="0.8"/>
+  <circle cx="100" cy="100" r="62" fill="#ffffff" stroke="#002D62" stroke-width="3"/>
+  <circle cx="100" cy="100" r="58" fill="none" stroke="#002D62" stroke-width="0.5"/>
+  <path d="M 58,128 L 142,128 A 2,2 0 0,0 144,126 L 144,124 L 56,124 L 56,126 A 2,2 0 0,0 58,128 Z" fill="#002D62"/>
+  <rect x="62" y="66" width="76" height="54" rx="3" stroke="#002D62" stroke-width="3.5" fill="none"/>
+  <path d="M 83,90 A 24,24 0 0,1 117,90" stroke="#002D62" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <polygon points="113,87 119,90 113,94" fill="#002D62"/>
+  <path d="M 117,102 A 24,24 0 0,1 83,102" stroke="#002D62" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <polygon points="87,105 81,102 87,98" fill="#002D62"/>
+  <path d="M 68,96 L 76,96 M 70,91 L 76,93" stroke="#E35E14" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="68" cy="91" r="1.5" fill="#E35E14"/>
+  <circle cx="66" cy="96" r="1.5" fill="#E35E14"/>
+  <circle cx="68" cy="101" r="1.5" fill="#E35E14"/>
+  <path d="M 68,101 L 75,98" stroke="#E35E14" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 83,93 C 86,91 93,92 97,96 L 91,102 L 87,99 Z" fill="#E35E14"/>
+  <path d="M 117,97 C 114,91 107,92 103,96 L 109,102 L 113,99 Z" fill="#002D62"/>
+  <path d="M 94,95 C 96,93 99,93 101,95 L 104,98 C 102,100 98,100 96,98 Z" fill="#E35E14"/>
+  <path d="M 96,98 C 98,96 101,96 103,98 L 105,101 C 103,103 99,103 97,101 Z" fill="#002D62"/>
+  <path d="M 132,96 L 124,96 M 130,91 L 124,93" stroke="#002D62" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="132" cy="91" r="1.5" fill="#002D62"/>
+  <circle cx="134" cy="96" r="1.5" fill="#002D62"/>
+  <circle cx="132" cy="101" r="1.5" fill="#002D62"/>
+  <path d="M 132,101 L 125,98" stroke="#002D62" stroke-width="2" stroke-linecap="round"/>
+  <g transform="translate(15, -4)">
+    <polygon points="105,62 125,70 105,78 85,70" fill="#002D62" stroke="#ffffff" stroke-width="1"/>
+    <path d="M 92,72 L 92,79 C 92,82 118,82 118,79 L 118,72" fill="#002D62" stroke="#ffffff" stroke-width="0.5"/>
+    <path d="M 105,70 L 122,76 L 122,85" stroke="#002D62" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <circle cx="122" cy="85" r="1" fill="#002D62"/>
+  </g>
+  <polygon points="21,100 24,103 23,107 19,105 15,107 16,103 19,100" fill="#ffffff"/>
+  <polygon points="179,100 181,103 185,102 181,105 183,109 179,106 175,109 177,105 173,102" fill="#ffffff"/>
+  <defs>
+    <path id="fg-text-arc-top" d="M 28,100 A 72,72 0 0,1 172,100" fill="none"/>
+    <path id="fg-text-arc-bottom" d="M 172,100 A 72,72 0 0,1 28,100" fill="none"/>
+  </defs>
+  <text fill="#ffffff" font-family="Arial, sans-serif" font-size="13px" letter-spacing="2.5px">
+    <textPath href="#fg-text-arc-top" startOffset="50%" text-anchor="middle">
+      FUTURE GATES i.T CENTER
+    </textPath>
+  </text>
+  <text fill="#ffffff" font-family="Arial, sans-serif" font-size="9.5px" letter-spacing="0.8px">
+    <textPath href="#fg-text-arc-bottom" startOffset="50%" text-anchor="middle">
+      Where Skills Become Your Income
+    </textPath>
+  </text>
+</svg>
