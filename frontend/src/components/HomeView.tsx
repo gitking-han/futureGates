@@ -218,62 +218,45 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-  <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-
-    {/* Header */}
-    <div className="border-b border-slate-100 px-6 py-5 sm:px-8">
-      <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-blue">
-        Student Activity & Institution Ads
-      </p>
-
-      <div className="mt-2 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-        <div>
-          <h2 className="text-3xl font-bold text-slate-900">
-            Latest Announcements
-          </h2>
-
-          <p className="mt-2 max-w-2xl text-slate-600">
-            {studentActivityAd?.description}
-          </p>
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center rounded-3xl border border-slate-200 bg-white p-8 shadow-lg overflow-hidden">
+          <div className="space-y-5">
+            <p className="text-[11px] font-bold text-brand-blue uppercase tracking-widest">Student Activity & Institution Ads</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-950">
+              Student Activity & Ads
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              {studentActivityAd?.description ?? 'Explore our latest student achievements and institutional announcements in one concise update section.'}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => setTab('contact')}
+                className="rounded-2xl bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue-dark"
+              >
+                Contact Admissions
+              </button>
+              <button
+                type="button"
+                onClick={() => setTab('courses')}
+                className="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+              >
+                View Programs
+              </button>
+            </div>
+          </div>
+          <div className="rounded-3xl bg-slate-100 overflow-hidden shadow-inner">
+            {loadingStudentActivityAd ? (
+              <div className="flex h-full min-h-80 items-center justify-center px-6 py-10 text-slate-500">Loading image…</div>
+            ) : (
+              <img
+                src={studentActivityAd?.imageUrl ?? '/brandlogo.png'}
+                alt={'Student activity and institution ad'}
+                className="h-full min-h-80 w-full object-cover"
+              />
+            )}
+          </div>
         </div>
-
-        <div className="flex gap-3">
-          <button
-            onClick={() => setTab('contact')}
-            className="rounded-xl bg-brand-blue px-5 py-3 text-sm font-semibold text-white"
-          >
-            Contact Admissions
-          </button>
-
-          <button
-            onClick={() => setTab('courses')}
-            className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700"
-          >
-            View Programs
-          </button>
-        </div>
-      </div>
-    </div>
-
-    {/* Poster */}
-    <div className="bg-slate-50 p-4 sm:p-6">
-      {loadingStudentActivityAd ? (
-        <div className="flex min-h-[600px] items-center justify-center rounded-2xl bg-white">
-          Loading image...
-        </div>
-      ) : (
-        <div className="mx-auto max-w-4xl">
-          <img
-            src={studentActivityAd?.imageUrl}
-            alt="Student activity advertisement"
-            className="w-full rounded-2xl object-contain shadow-lg"
-          />
-        </div>
-      )}
-    </div>
-
-  </div>
-</section>
+      </section>
 
       {/* Embedded Banner of IT Client Services (Web & App dev unit) */}
       <section className="bg-slate-900 text-white py-16 px-4 border-l-4 border-brand-blue relative overflow-hidden">
