@@ -97,3 +97,12 @@ export interface ContactInquiry {
   message: string;
   submittedAt: string;
 }
+
+export interface StudentActivityAd {
+  _id?: string;
+  heading: string;
+  description: string;
+  imageUrl: string;
+  createdAt?: string;
+  updatedAt?: string;
+}

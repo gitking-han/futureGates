@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getBlogs } from '../services/blogService';
 import { getVerifications } from '../services/verificationService';
+import { getStudentActivityAds } from '../services/studentActivityAdService';
 import type { BlogPost, VerificationRecord } from '../types';
 
 interface AdminDashboardViewProps {
@@ -12,6 +13,7 @@ interface AdminDashboardViewProps {
 export const AdminDashboardView = ({ adminEmail, onLogout, setTab }: AdminDashboardViewProps) => {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [verifications, setVerifications] = useState<VerificationRecord[]>([]);
+  const [studentActivityAds, setStudentActivityAds] = useState<number>(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [actionMessage, setActionMessage] = useState('');
@@ -21,9 +23,10 @@ export const AdminDashboardView = ({ adminEmail, onLogout, setTab }: AdminDashbo
       setError('');
       setLoading(true);
       try {
-        const [blogData, verificationData] = await Promise.all([getBlogs(), getVerifications()]);
+        const [blogData, verificationData, activityData] = await Promise.all([getBlogs(), getVerifications(), getStudentActivityAds()]);
         setBlogs(blogData);
         setVerifications(verificationData);
+        setStudentActivityAds(Array.isArray(activityData) ? activityData.length : 0);
       } catch (err: any) {
         setError(err?.response?.data?.message || 'Unable to load dashboard data.');
         if (err?.response?.status === 401) {
@@ -72,6 +75,11 @@ export const AdminDashboardView = ({ adminEmail, onLogout, setTab }: AdminDashbo
             <p className="mt-4 text-5xl font-bold text-slate-900">{verifications.length}</p>
             <p className="mt-3 text-sm text-slate-500">Current verification records available for management.</p>
           </div>
+          <div className="rounded-3xl border border-slate-200 bg-brand-blue/5 p-6">
+            <p className="text-sm font-semibold text-slate-600">Homepage Section</p>
+            <p className="mt-4 text-5xl font-bold text-slate-900">{studentActivityAds}</p>
+            <p className="mt-3 text-sm text-slate-500">Student activity and institution ad sections configured for home page.</p>
+          </div>
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -90,6 +98,14 @@ export const AdminDashboardView = ({ adminEmail, onLogout, setTab }: AdminDashbo
           >
             <p className="text-sm font-semibold">Verification Center</p>
             <p className="mt-2 text-sm text-slate-500">Manage verification uploads and records on a separate admin page.</p>
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab('admin-student-activity-ads')}
+            className="rounded-3xl border border-slate-200 bg-white px-6 py-4 text-left text-slate-900 transition hover:bg-slate-100"
+          >
+            <p className="text-sm font-semibold">Home Page Section</p>
+            <p className="mt-2 text-sm text-slate-500">Create or edit the student activity and institution ads section.</p>
           </button>
         </div>
       </div>

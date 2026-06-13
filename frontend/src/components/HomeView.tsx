@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Award, ShieldCheck, ArrowRight, Star, Smartphone, Globe, CodeXml, Flame } from 'lucide-react';
 import { COURSES, TESTIMONIALS } from '../data';
+import { getStudentActivityAds } from '../services/studentActivityAdService';
+import type { StudentActivityAd } from '../types';
 
 interface HomeViewProps {
   setTab: (tab: string) => void;
@@ -14,6 +16,23 @@ interface HomeViewProps {
 
 export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
   const featuredCourses = COURSES.filter((c) => c.featured);
+  const [studentActivityAd, setStudentActivityAd] = useState<StudentActivityAd | null>(null);
+  const [loadingStudentActivityAd, setLoadingStudentActivityAd] = useState(true);
+
+  useEffect(() => {
+    const loadSection = async () => {
+      setLoadingStudentActivityAd(true);
+      try {
+        const items = await getStudentActivityAds();
+        setStudentActivityAd(items.length ? items[0] : null);
+      } catch (error) {
+        setStudentActivityAd(null);
+      } finally {
+        setLoadingStudentActivityAd(false);
+      }
+    };
+    loadSection();
+  }, []);
 
   return (
     <div className="space-y-16 pb-16">
@@ -21,7 +40,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
       {/* Dynamic Chalkboard Hero Section */}
       <section className="relative overflow-hidden bg-linear-to-b from-slate-900 via-brand-blue-dark to-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-brand-orange">
         {/* Subtle Decorative Grid */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[32px_32px]" />
 
         {/* Decorative backdrop blobs */}
         <div className="absolute top-1/4 left-10 w-72 h-72 bg-blend-multiply bg-brand-blue opacity-25 rounded-full blur-3xl" />
@@ -195,6 +214,47 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
             Explore All Diplomas
             <ArrowRight className="w-4 h-4" />
           </button>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center rounded-3xl border border-slate-200 bg-white p-8 shadow-lg overflow-hidden">
+          <div className="space-y-5">
+            <p className="text-[11px] font-bold text-brand-blue uppercase tracking-widest">Student Activity & Institution Ads</p>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-950">
+              {studentActivityAd?.heading ?? 'Student Activity and Institutional Highlights'}
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              {studentActivityAd?.description ?? 'Explore our latest student achievements and institutional announcements in one concise update section.'}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => setTab('contact')}
+                className="rounded-2xl bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue-dark"
+              >
+                Contact Admissions
+              </button>
+              <button
+                type="button"
+                onClick={() => setTab('courses')}
+                className="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+              >
+                View Programs
+              </button>
+            </div>
+          </div>
+          <div className="rounded-3xl bg-slate-100 overflow-hidden shadow-inner">
+            {loadingStudentActivityAd ? (
+              <div className="flex h-full min-h-80 items-center justify-center px-6 py-10 text-slate-500">Loading image…</div>
+            ) : (
+              <img
+                src={studentActivityAd?.imageUrl ?? '/brandlogo.png'}
+                alt={studentActivityAd?.heading ?? 'Student activity and institution ad'}
+                className="h-full min-h-80 w-full object-cover"
+              />
+            )}
+          </div>
         </div>
       </section>
 

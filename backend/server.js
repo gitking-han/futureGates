@@ -8,6 +8,7 @@ import { connectDB } from './config/db.js';
 import adminRoutes from './routes/adminRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import verificationRoutes from './routes/verificationRoutes.js';
+import studentActivityAdRoutes from './routes/studentActivityAdRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,6 +35,7 @@ app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 app.use('/api/admin', adminRoutes);
 app.use('/api/blogs', blogRoutes);
 app.use('/api/verifications', verificationRoutes);
+app.use('/api/student-activity-ads', studentActivityAdRoutes);
 
 app.get('/api/health', (_, res) => {
   res.json({ status: 'ok' });

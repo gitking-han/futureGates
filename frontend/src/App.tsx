@@ -19,6 +19,7 @@ import { AdminLoginView } from './components/AdminLoginView';
 import { AdminDashboardView } from './components/AdminDashboardView';
 import { AdminBlogsPage } from './components/AdminBlogsPage';
 import { AdminVerificationPage } from './components/AdminVerificationPage';
+import { AdminStudentActivityAdsPage } from './components/AdminStudentActivityAdsPage';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
 import { Disclaimer } from './components/Disclaimer';
@@ -45,6 +46,8 @@ const pathToTab = (pathname: string, token: string | null) => {
       return token ? 'admin-blogs' : 'admin-login';
     case '/admin/verification':
       return token ? 'admin-verification' : 'admin-login';
+    case '/admin/student-activity-ads':
+      return token ? 'admin-student-activity-ads' : 'admin-login';
     case '/privacy':
       return 'privacy';
     case '/terms':
@@ -77,6 +80,8 @@ const tabToPath = (tab: string) => {
       return '/admin/blogs';
     case 'admin-verification':
       return '/admin/verification';
+    case 'admin-student-activity-ads':
+      return '/admin/student-activity-ads';
     case 'privacy':
       return '/privacy';
     case 'terms':
@@ -208,6 +213,13 @@ export default function App() {
             setTab={setTab}
           />
         );
+      case 'admin-student-activity-ads':
+        return (
+          <AdminStudentActivityAdsPage
+            onBack={() => setTab('admin-dashboard')}
+            setTab={setTab}
+          />
+        );
       case 'privacy':
         return <PrivacyPolicy />;
       case 'terms':
@@ -226,7 +238,7 @@ export default function App() {
       <Header currentTab={currentTab} setTab={setTab} />
 
       {/* Main Transitions Workspace Wrapper */}
-      <main className="flex-grow">
+      <main className="grow">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentTab}
