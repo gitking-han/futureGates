@@ -222,7 +222,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
           <div className="space-y-5">
             <p className="text-[11px] font-bold text-brand-blue uppercase tracking-widest">Student Activity & Institution Ads</p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-950">
-              {studentActivityAd?.heading ?? 'Student Activity and Institutional Highlights'}
+              Student Activity & Ads
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               {studentActivityAd?.description ?? 'Explore our latest student achievements and institutional announcements in one concise update section.'}
@@ -250,7 +250,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
             ) : (
               <img
                 src={studentActivityAd?.imageUrl ?? '/brandlogo.png'}
-                alt={studentActivityAd?.heading ?? 'Student activity and institution ad'}
+                alt={'Student activity and institution ad'}
                 className="h-full min-h-80 w-full object-cover"
               />
             )}

@@ -1,18 +1,40 @@
 import StudentActivityAd from '../models/StudentActivityAd.js';
 
-export const createStudentActivityAd = async (req, res) => {
-  try {
-    const { heading, description, imageUrl } = req.body;
+// Fixed heading enforced by requirement
+const FIXED_HEADING = 'Student Activity & Ads';
 
-    if (!heading || !description || !imageUrl) {
-      return res.status(400).json({ message: 'Heading, description and imageUrl are required.' });
+// Create or update single section (upsert). Accepts description and optional imageBase64 in body.
+export const upsertStudentActivityAd = async (req, res) => {
+  try {
+    const description = (req.body.description || '').trim();
+
+    if (!description && !req.file) {
+      return res.status(400).json({ message: 'Description or image is required.' });
     }
 
-    const created = await StudentActivityAd.create({ heading, description, imageUrl });
+    let imageBase64 = req.body.imageUrl || '';
+    if (req.file && req.file.buffer) {
+      imageBase64 = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
+    }
+
+    const existing = await StudentActivityAd.findOne();
+    const payload = {
+      heading: FIXED_HEADING,
+      description: description || (existing ? existing.description : ''),
+      imageUrl: imageBase64 || (existing ? existing.imageUrl : ''),
+    };
+
+    if (existing) {
+      Object.assign(existing, payload);
+      await existing.save();
+      return res.json(existing);
+    }
+
+    const created = await StudentActivityAd.create(payload);
     res.status(201).json(created);
   } catch (error) {
-    console.error('Create student activity ad failed:', error);
-    res.status(500).json({ message: error?.message || 'Unable to create record.' });
+    console.error('Upsert student activity ad failed:', error);
+    res.status(500).json({ message: error?.message || 'Unable to upsert record.' });
   }
 };
 
@@ -23,16 +45,22 @@ export const getStudentActivityAds = async (req, res) => {
 
 export const updateStudentActivityAd = async (req, res) => {
   const { id } = req.params;
-  const { heading, description, imageUrl } = req.body;
-
   const item = await StudentActivityAd.findById(id);
   if (!item) {
     return res.status(404).json({ message: 'Student activity ad not found.' });
   }
 
-  item.heading = heading?.trim() || item.heading;
-  item.description = description?.trim() || item.description;
-  item.imageUrl = imageUrl?.trim() || item.imageUrl;
+  const description = req.body.description?.trim();
+  if (description) item.description = description;
+
+  if (req.file && req.file.buffer) {
+    item.imageUrl = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
+  } else if (req.body.imageUrl) {
+    item.imageUrl = req.body.imageUrl.trim();
+  }
+
+  // Keep heading fixed
+  item.heading = FIXED_HEADING;
 
   await item.save();
   res.json(item);

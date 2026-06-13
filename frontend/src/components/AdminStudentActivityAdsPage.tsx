@@ -21,6 +21,7 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
 
   const [editId, setEditId] = useState('');
   const [heading, setHeading] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
@@ -31,6 +32,16 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
       try {
         const data = await getStudentActivityAds();
         setItems(data);
+        // ensure heading is fixed and prefill form if an item exists
+        if (data.length > 0) {
+          const first = data[0];
+          setEditId(first._id ?? '');
+          setDescription(first.description || '');
+          setImageUrl(first.imageUrl || '');
+          setHeading('Student Activity & Ads');
+        } else {
+          setHeading('Student Activity & Ads');
+        }
       } catch (err: any) {
         setError(err?.response?.data?.message || 'Unable to load student activity ads.');
       } finally {
@@ -43,7 +54,7 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
 
   const resetForm = () => {
     setEditId('');
-    setHeading('');
+    setHeading('Student Activity & Ads');
     setDescription('');
     setImageUrl('');
   };
@@ -53,23 +64,15 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
     setError('');
     setActionMessage('');
 
-    const payload = {
-      heading: heading.trim(),
-      description: description.trim(),
-      imageUrl: imageUrl.trim(),
-    };
-
     try {
       if (editId) {
-        const updated = await updateStudentActivityAd(editId, payload);
+        const updated = await updateStudentActivityAd(editId, { description: description.trim(), imageFile: imageFile ?? undefined });
         setItems((prev) => prev.map((item) => (item._id === updated._id ? updated : item)));
         setActionMessage('Section updated successfully.');
       } else {
-        const created = await createStudentActivityAd(payload);
-        setItems((prev) => [created, ...prev]);
-        setActionMessage('Section created successfully.');
+        // Prefer update-only. If no section exists, instruct admin to initialize.
+        setError('No existing section to update. Use the Initialize button below to create one.');
       }
-      resetForm();
     } catch (err: any) {
       setError(err?.response?.data?.message || 'Unable to save section.');
     }
@@ -77,9 +80,10 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
 
   const handleEdit = (item: StudentActivityAd) => {
     setEditId(item._id ?? '');
-    setHeading(item.heading);
+    setHeading('Student Activity & Ads');
     setDescription(item.description);
     setImageUrl(item.imageUrl);
+    setImageFile(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -145,13 +149,10 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
         </div>
 
         <form onSubmit={handleSubmit} className="grid gap-4">
-          <input
-            required
-            value={heading}
-            onChange={(event) => setHeading(event.target.value)}
-            placeholder="Section heading"
-            className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
-          />
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm">
+            <p className="font-semibold">Heading</p>
+            <p className="text-sm text-slate-600">Student Activity & Ads (fixed)</p>
+          </div>
           <textarea
             required
             value={description}
@@ -160,19 +161,46 @@ export const AdminStudentActivityAdsPage = ({ onBack, setTab }: AdminStudentActi
             placeholder="Short description paragraph"
             className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
           />
-          <input
-            required
-            value={imageUrl}
-            onChange={(event) => setImageUrl(event.target.value)}
-            placeholder="Image URL"
-            className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
-          />
-          <button
-            type="submit"
-            className="rounded-2xl bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue-dark"
-          >
-            {editId ? 'Update section' : 'Create section'}
-          </button>
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-2">Image (upload)</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImageFile(e.target.files?.[0] ?? null)}
+              className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm w-full"
+            />
+            {imageUrl && !imageFile && (
+              <p className="mt-2 text-xs text-slate-500">Current image shown below. Upload to replace.</p>
+            )}
+          </div>
+          <div className="flex gap-3">
+            <button
+              type="submit"
+              className="rounded-2xl bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue-dark"
+            >
+              Update section
+            </button>
+            {!editId && (
+              <button
+                type="button"
+                onClick={async () => {
+                  setError('');
+                  setActionMessage('');
+                  try {
+                    const created = await createStudentActivityAd({ description: description.trim() || 'Student highlights', imageFile: imageFile ?? undefined });
+                    setItems((prev) => [created, ...prev]);
+                    setEditId(created._id ?? '');
+                    setActionMessage('Section initialized.');
+                  } catch (err: any) {
+                    setError(err?.response?.data?.message || 'Unable to initialize section.');
+                  }
+                }}
+                className="rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100"
+              >
+                Initialize section
+              </button>
+            )}
+          </div>
         </form>
       </section>
 
