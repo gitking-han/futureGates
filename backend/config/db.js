@@ -6,10 +6,14 @@ export async function connectDB() {
   }
 
   try {
+    console.log('Connecting to MongoDB...');
+
     await mongoose.connect(process.env.MONGODB_URI, {
       dbName: 'future-gates',
       autoIndex: true,
+      serverSelectionTimeoutMS: 60000,
     });
+
     console.log('MongoDB connected');
   } catch (error) {
     console.error('MongoDB connection error:', error);
