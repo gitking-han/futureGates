@@ -11,6 +11,7 @@ import adminRoutes from './routes/adminRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import verificationRoutes from './routes/verificationRoutes.js';
 import studentActivityAdRoutes from './routes/studentActivityAdRoutes.js';
+import heroSlideRoutes from './routes/heroSlideRoutes.js';
 
 /* -------------------- PATH FIX (IMPORTANT) -------------------- */
 const __filename = fileURLToPath(import.meta.url);
@@ -47,6 +48,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/blogs', blogRoutes);
 app.use('/api/verifications', verificationRoutes);
 app.use('/api/student-activity-ads', studentActivityAdRoutes);
+app.use('/api/hero-slides', heroSlideRoutes);
 
 /* -------------------- HEALTH CHECK -------------------- */
 app.get('/api/health', (_, res) => {

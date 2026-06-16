@@ -20,6 +20,7 @@ import { AdminDashboardView } from './components/AdminDashboardView';
 import { AdminBlogsPage } from './components/AdminBlogsPage';
 import { AdminVerificationPage } from './components/AdminVerificationPage';
 import { AdminStudentActivityAdsPage } from './components/AdminStudentActivityAdsPage';
+import { AdminHeroSlidesPage } from './components/AdminHeroSlidesPage';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
 import { Disclaimer } from './components/Disclaimer';
@@ -48,6 +49,8 @@ const pathToTab = (pathname: string, token: string | null) => {
       return token ? 'admin-verification' : 'admin-login';
     case '/admin/student-activity-ads':
       return token ? 'admin-student-activity-ads' : 'admin-login';
+    case '/admin/hero-slides':
+      return token ? 'admin-hero-slides' : 'admin-login';
     case '/privacy':
       return 'privacy';
     case '/terms':
@@ -82,6 +85,8 @@ const tabToPath = (tab: string) => {
       return '/admin/verification';
     case 'admin-student-activity-ads':
       return '/admin/student-activity-ads';
+    case 'admin-hero-slides':
+      return '/admin/hero-slides';
     case 'privacy':
       return '/privacy';
     case 'terms':
@@ -216,6 +221,13 @@ export default function App() {
       case 'admin-student-activity-ads':
         return (
           <AdminStudentActivityAdsPage
+            onBack={() => setTab('admin-dashboard')}
+            setTab={setTab}
+          />
+        );
+      case 'admin-hero-slides':
+        return (
+          <AdminHeroSlidesPage
             onBack={() => setTab('admin-dashboard')}
             setTab={setTab}
           />

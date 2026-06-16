@@ -106,3 +106,11 @@ export interface StudentActivityAd {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export interface HeroSlide {
+  _id?: string;
+  imageUrl: string;
+  order?: number;
+  createdAt?: string;
+  updatedAt?: string;
+}

@@ -107,6 +107,14 @@ export const AdminDashboardView = ({ adminEmail, onLogout, setTab }: AdminDashbo
             <p className="text-sm font-semibold">Home Page Section</p>
             <p className="mt-2 text-sm text-slate-500">Create or edit the student activity and institution ads section.</p>
           </button>
+          <button
+            type="button"
+            onClick={() => setTab('admin-hero-slides')}
+            className="rounded-3xl border border-slate-200 bg-white px-6 py-4 text-left text-slate-900 transition hover:bg-slate-100"
+          >
+            <p className="text-sm font-semibold">Hero Slider</p>
+            <p className="mt-2 text-sm text-slate-500">Add or manage hero ticker images for the home page.</p>
+          </button>
         </div>
       </div>
     </div>

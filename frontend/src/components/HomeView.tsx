@@ -8,16 +8,37 @@ import { motion } from 'motion/react';
 import { BookOpen, Award, ShieldCheck, ArrowRight, Star, Smartphone, Globe, CodeXml, Flame } from 'lucide-react';
 import { COURSES, TESTIMONIALS } from '../data';
 import { getStudentActivityAds } from '../services/studentActivityAdService';
-import type { StudentActivityAd } from '../types';
+import { getHeroSlides } from '../services/heroSlideService';
+import type { HeroSlide, StudentActivityAd } from '../types';
 
 interface HomeViewProps {
   setTab: (tab: string) => void;
 }
 
+const DEMO_HERO_SLIDES: HeroSlide[] = [
+  {
+    _id: 'demo-1',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80',
+    order: 0,
+  },
+  {
+    _id: 'demo-2',
+    imageUrl: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1400&q=80',
+    order: 1,
+  },
+  {
+    _id: 'demo-3',
+    imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80',
+    order: 2,
+  },
+];
+
 export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
   const featuredCourses = COURSES.filter((c) => c.featured);
   const [studentActivityAd, setStudentActivityAd] = useState<StudentActivityAd | null>(null);
   const [loadingStudentActivityAd, setLoadingStudentActivityAd] = useState(true);
+  const [heroSlides, setHeroSlides] = useState<HeroSlide[]>(DEMO_HERO_SLIDES);
+  const [heroSlideIndex, setHeroSlideIndex] = useState(0);
 
   useEffect(() => {
     const loadSection = async () => {
@@ -34,11 +55,39 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
     loadSection();
   }, []);
 
+  useEffect(() => {
+    const loadSlides = async () => {
+      try {
+        const slides = await getHeroSlides();
+        if (slides.length) {
+          setHeroSlides(slides.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
+        }
+      } catch {
+        setHeroSlides(DEMO_HERO_SLIDES);
+      }
+    };
+    loadSlides();
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setHeroSlideIndex((current) => (current + 1) % heroSlides.length);
+    }, 5000);
+    return () => window.clearInterval(interval);
+  }, [heroSlides.length]);
+
   return (
     <div className="space-y-16 pb-16">
 
-      {/* Dynamic Chalkboard Hero Section */}
-      <section className="relative overflow-hidden bg-linear-to-b from-slate-900 via-brand-blue-dark to-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8 border-b-4 border-brand-orange">
+      <section className="relative overflow-hidden bg-linear-to-b from-slate-900 via-brand-blue-dark to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-brand-orange">
+        {/* Minimal ticker section - 100px height */}
+        <div className="relative h-25 overflow-hidden mb-8 rounded-lg">
+          <img
+            src={DEMO_HERO_SLIDES[heroSlideIndex].imageUrl}
+            alt="Training visuals"
+            className="w-full h-full object-cover"
+          />
+        </div>
         {/* Subtle Decorative Grid */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[32px_32px]" />
 
@@ -118,7 +167,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-10">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
-            { metric: '5,000+', title: 'Students Certified', sub: 'Fully verifiable transcripts', icon: Award, color: 'text-brand-orange' },
+            { metric: '1,000+', title: 'Students Certified', sub: 'Fully verifiable transcripts', icon: Award, color: 'text-brand-orange' },
             { metric: '100%', tone: 'Practical Labs', title: 'Hands-on Outcomes', sub: 'Figma & Coding compliance', icon: ShieldCheck, color: 'text-brand-orange' },
             { metric: '20+', title: 'Corporate Clients', sub: 'Client web & app dev projects', icon: Globe, color: 'text-brand-blue-light' },
             { metric: '15+', title: 'Experienced Faculty', sub: 'Real industry practitioners', icon: BookOpen, color: 'text-brand-orange' },
