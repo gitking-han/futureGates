@@ -167,7 +167,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Image URL (optional)</label>
-            <input
+            <input 
               type="url"
               value={imageUrl}
               onChange={(event) => setImageUrl(event.target.value)}
