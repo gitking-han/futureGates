@@ -15,29 +15,11 @@ interface HomeViewProps {
   setTab: (tab: string) => void;
 }
 
-const DEMO_HERO_SLIDES: HeroSlide[] = [
-  {
-    _id: 'demo-1',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80',
-    order: 0,
-  },
-  {
-    _id: 'demo-2',
-    imageUrl: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1400&q=80',
-    order: 1,
-  },
-  {
-    _id: 'demo-3',
-    imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80',
-    order: 2,
-  },
-];
-
 export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
   const featuredCourses = COURSES.filter((c) => c.featured);
   const [studentActivityAd, setStudentActivityAd] = useState<StudentActivityAd | null>(null);
   const [loadingStudentActivityAd, setLoadingStudentActivityAd] = useState(true);
-  const [heroSlides, setHeroSlides] = useState<HeroSlide[]>(DEMO_HERO_SLIDES);
+  const [heroSlides, setHeroSlides] = useState<HeroSlide[]>([]);
   const [heroSlideIndex, setHeroSlideIndex] = useState(0);
 
   useEffect(() => {
@@ -59,17 +41,20 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
     const loadSlides = async () => {
       try {
         const slides = await getHeroSlides();
-        if (slides.length) {
-          setHeroSlides(slides.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
-        }
+        setHeroSlides(slides.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
       } catch {
-        setHeroSlides(DEMO_HERO_SLIDES);
+        setHeroSlides([]);
       }
     };
     loadSlides();
   }, []);
 
   useEffect(() => {
+    if (!heroSlides.length) {
+      setHeroSlideIndex(0);
+      return;
+    }
+
     const interval = window.setInterval(() => {
       setHeroSlideIndex((current) => (current + 1) % heroSlides.length);
     }, 5000);
@@ -81,12 +66,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
 
       <section className="relative overflow-hidden bg-linear-to-b from-slate-900 via-brand-blue-dark to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-brand-orange">
         {/* Minimal ticker section - 100px height */}
-        <div className="relative h-25 overflow-hidden mb-8 rounded-lg">
-          <img
-            src={DEMO_HERO_SLIDES[heroSlideIndex].imageUrl}
-            alt="Training visuals"
-            className="w-full h-full object-cover"
-          />
+        <div className="relative h-25 overflow-hidden mb-8 rounded-lg bg-slate-800">
+          {heroSlides.length > 0 && (
+            <img
+              src={heroSlides[heroSlideIndex].imageUrl}
+              alt={`Hero slide ${heroSlideIndex + 1}`}
+              className="w-full h-full object-cover"
+            />
+          )}
         </div>
         {/* Subtle Decorative Grid */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[32px_32px]" />

@@ -21,6 +21,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
 
   const [editId, setEditId] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [order, setOrder] = useState<number>(0);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
   const resetForm = () => {
     setEditId('');
     setImageUrl('');
+    setImageFile(null);
     setOrder(0);
   };
 
@@ -51,22 +53,27 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
     setError('');
     setActionMessage('');
 
-    if (!imageUrl.trim()) {
-      setError('Image URL is required.');
+    if (!imageUrl.trim() && !imageFile) {
+      setError('Image file or image URL is required.');
       return;
     }
 
     try {
       if (editId) {
         const updated = await updateHeroSlide(editId, {
-          imageUrl: imageUrl.trim(),
+          imageUrl: imageUrl.trim() || undefined,
+          imageFile: imageFile ?? undefined,
           order,
         });
         setSlides((prev) => prev.map((item) => (item._id === updated._id ? updated : item)));
         setActionMessage('Slide updated successfully.');
       } else {
-        const created = await createHeroSlide({ imageUrl: imageUrl.trim(), order });
-        setSlides((prev) => [...prev, created].sort((a, b) => a.order - b.order));
+        const created = await createHeroSlide({
+          imageUrl: imageUrl.trim() || undefined,
+          imageFile: imageFile ?? undefined,
+          order,
+        });
+        setSlides((prev) => [...prev, created].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
         setActionMessage('Slide created successfully.');
       }
       resetForm();
@@ -78,6 +85,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
   const handleEdit = (slide: HeroSlide) => {
     setEditId(slide._id ?? '');
     setImageUrl(slide.imageUrl);
+    setImageFile(null);
     setOrder(slide.order ?? 0);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -148,7 +156,17 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
 
         <form onSubmit={handleSubmit} className="grid gap-4">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Image URL</label>
+            <label className="block text-sm font-medium text-slate-700 mb-2">Image file</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(event) => setImageFile(event.target.files?.[0] ?? null)}
+              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
+            />
+            <p className="mt-2 text-sm text-slate-500">Upload an image from your system - this is preferred for hero slides.</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-2">Image URL (optional)</label>
             <input
               type="url"
               value={imageUrl}
@@ -156,6 +174,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
               placeholder="https://example.com/slide.jpg"
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
             />
+            <p className="mt-2 text-sm text-slate-500">If you have a remote image URL, provide it here. Otherwise upload a file.</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Display order</label>

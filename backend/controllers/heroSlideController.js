@@ -1,5 +1,13 @@
 import HeroSlide from '../models/HeroSlide.js';
 
+const resolveImageUrlFromRequest = (req) => {
+  if (req.file && req.file.buffer) {
+    return `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
+  }
+
+  return (req.body.imageUrl || '').trim();
+};
+
 export const getHeroSlides = async (req, res) => {
   const slides = await HeroSlide.find().sort({ order: 1, createdAt: -1 });
   res.json(slides);
@@ -7,11 +15,11 @@ export const getHeroSlides = async (req, res) => {
 
 export const createHeroSlide = async (req, res) => {
   try {
-    const imageUrl = (req.body.imageUrl || '').trim();
+    const imageUrl = resolveImageUrlFromRequest(req);
     const order = Number(req.body.order ?? 0);
 
     if (!imageUrl) {
-      return res.status(400).json({ message: 'imageUrl is required.' });
+      return res.status(400).json({ message: 'Image file or imageUrl is required.' });
     }
 
     const slide = await HeroSlide.create({ imageUrl, order });
@@ -30,8 +38,9 @@ export const updateHeroSlide = async (req, res) => {
       return res.status(404).json({ message: 'Hero slide not found.' });
     }
 
-    if (typeof req.body.imageUrl === 'string') {
-      slide.imageUrl = req.body.imageUrl.trim();
+    const imageUrl = resolveImageUrlFromRequest(req);
+    if (imageUrl) {
+      slide.imageUrl = imageUrl;
     }
     if (typeof req.body.order !== 'undefined') {
       slide.order = Number(req.body.order);
