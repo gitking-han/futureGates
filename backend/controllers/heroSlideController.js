@@ -4,8 +4,7 @@ const resolveImageUrlFromRequest = (req) => {
   if (req.file && req.file.buffer) {
     return `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`;
   }
-
-  return (req.body.imageUrl || '').trim();
+  return '';
 };
 
 export const getHeroSlides = async (req, res) => {
@@ -19,7 +18,7 @@ export const createHeroSlide = async (req, res) => {
     const order = Number(req.body.order ?? 0);
 
     if (!imageUrl) {
-      return res.status(400).json({ message: 'Image file or imageUrl is required.' });
+      return res.status(400).json({ message: 'Image upload is required.' });
     }
 
     const slide = await HeroSlide.create({ imageUrl, order });

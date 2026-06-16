@@ -7,30 +7,28 @@ export const getHeroSlides = async (): Promise<HeroSlide[]> => {
 };
 
 export const createHeroSlide = async (
-  payload: { imageUrl?: string; imageFile?: File; order?: number }
+  payload: { imageFile: File; order?: number }
 ): Promise<HeroSlide> => {
   const form = new FormData();
-  if (payload.imageUrl) form.append('imageUrl', payload.imageUrl);
-  if (payload.imageFile) form.append('image', payload.imageFile);
+  form.append('image', payload.imageFile);
   if (payload.order !== undefined) form.append('order', String(payload.order));
 
   const { data } = await apiClient.post<HeroSlide>('/api/hero-slides', form, {
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {},
   });
   return data;
 };
 
 export const updateHeroSlide = async (
   id: string,
-  payload: { imageUrl?: string; imageFile?: File; order?: number }
+  payload: { imageFile?: File; order?: number }
 ): Promise<HeroSlide> => {
   const form = new FormData();
-  if (payload.imageUrl) form.append('imageUrl', payload.imageUrl);
   if (payload.imageFile) form.append('image', payload.imageFile);
   if (payload.order !== undefined) form.append('order', String(payload.order));
 
   const { data } = await apiClient.put<HeroSlide>(`/api/hero-slides/${id}`, form, {
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {},
   });
   return data;
 };

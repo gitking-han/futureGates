@@ -20,7 +20,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
   const [busyId, setBusyId] = useState('');
 
   const [editId, setEditId] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [currentImagePreview, setCurrentImagePreview] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [order, setOrder] = useState<number>(0);
 
@@ -43,7 +43,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
 
   const resetForm = () => {
     setEditId('');
-    setImageUrl('');
+    setCurrentImagePreview('');
     setImageFile(null);
     setOrder(0);
   };
@@ -53,15 +53,14 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
     setError('');
     setActionMessage('');
 
-    if (!imageUrl.trim() && !imageFile) {
-      setError('Image file or image URL is required.');
+    if (!editId && !imageFile) {
+      setError('Image upload is required for new slides.');
       return;
     }
 
     try {
       if (editId) {
         const updated = await updateHeroSlide(editId, {
-          imageUrl: imageUrl.trim() || undefined,
           imageFile: imageFile ?? undefined,
           order,
         });
@@ -69,8 +68,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
         setActionMessage('Slide updated successfully.');
       } else {
         const created = await createHeroSlide({
-          imageUrl: imageUrl.trim() || undefined,
-          imageFile: imageFile ?? undefined,
+          imageFile: imageFile!,
           order,
         });
         setSlides((prev) => [...prev, created].sort((a, b) => (a.order ?? 0) - (b.order ?? 0)));
@@ -84,7 +82,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
 
   const handleEdit = (slide: HeroSlide) => {
     setEditId(slide._id ?? '');
-    setImageUrl(slide.imageUrl);
+    setCurrentImagePreview(slide.imageUrl);
     setImageFile(null);
     setOrder(slide.order ?? 0);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -141,7 +139,7 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-xl font-semibold text-slate-900">{editId ? 'Edit slide' : 'Create slide'}</h2>
-            <p className="text-sm text-slate-500">Provide the image URL and order number for the homepage slider.</p>
+            <p className="text-sm text-slate-500">Upload an image file from your system and set its display order.</p>
           </div>
           {editId && (
             <button
@@ -163,18 +161,13 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
               onChange={(event) => setImageFile(event.target.files?.[0] ?? null)}
               className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
             />
-            <p className="mt-2 text-sm text-slate-500">Upload an image from your system - this is preferred for hero slides.</p>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">Image URL (optional)</label>
-            <input 
-              type="url"
-              value={imageUrl}
-              onChange={(event) => setImageUrl(event.target.value)}
-              placeholder="https://example.com/slide.jpg"
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm"
-            />
-            <p className="mt-2 text-sm text-slate-500">If you have a remote image URL, provide it here. Otherwise upload a file.</p>
+            <p className="mt-2 text-sm text-slate-500">Upload an image from your system. For existing slides, leaving the file blank preserves the current image.</p>
+            {editId && currentImagePreview && !imageFile && (
+              <div className="mt-4 rounded-3xl border border-slate-200 overflow-hidden">
+                <p className="px-4 py-3 text-xs uppercase tracking-[0.3em] text-slate-500">Current image preview</p>
+                <img src={currentImagePreview} alt="Current slide" className="w-full h-40 object-cover" />
+              </div>
+            )}
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-2">Display order</label>
@@ -217,7 +210,6 @@ export const AdminHeroSlidesPage = ({ onBack, setTab }: AdminHeroSlidesPageProps
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-semibold text-slate-700">Order: {slide.order ?? 0}</p>
-                      <p className="mt-2 text-sm text-slate-500 break-all">{slide.imageUrl}</p>
                     </div>
                     <div className="flex gap-2 flex-wrap">
                       <button
