@@ -13,20 +13,25 @@ import verificationRoutes from './routes/verificationRoutes.js';
 import studentActivityAdRoutes from './routes/studentActivityAdRoutes.js';
 import heroSlideRoutes from './routes/heroSlideRoutes.js';
 
-/* -------------------- PATH FIX (IMPORTANT) -------------------- */
+/* -------------------- PATH FIX -------------------- */
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /* -------------------- ENV -------------------- */
 dotenv.config();
 
+console.log('Application starting...');
+
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+/* -------------------- TRUST PROXY -------------------- */
 app.set('trust proxy', 1);
 
 /* -------------------- MIDDLEWARE -------------------- */
 app.use(cors());
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
@@ -40,7 +45,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-/* -------------------- STATIC FILES (UPLOADS) -------------------- */
+/* -------------------- STATIC FILES -------------------- */
 app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 
 /* -------------------- API ROUTES -------------------- */
@@ -51,27 +56,40 @@ app.use('/api/student-activity-ads', studentActivityAdRoutes);
 app.use('/api/hero-slides', heroSlideRoutes);
 
 /* -------------------- HEALTH CHECK -------------------- */
-app.get('/api/health', (_, res) => {
-  res.json({ status: 'ok' });
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+  });
 });
 
-/* -------------------- FRONTEND (REACT DIST) -------------------- */
+/* -------------------- REACT DIST -------------------- */
 app.use(express.static(path.join(__dirname, 'dist')));
 
-/* IMPORTANT: React routing fallback */
-app.get('*', (req, res) => {
+/* -------------------- REACT ROUTING FALLBACK -------------------- */
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 /* -------------------- ERROR HANDLER -------------------- */
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ message: err.message || 'Internal server error' });
-});
+  console.error('Unhandled error:', err);
 
-/* -------------------- START SERVER -------------------- */
-connectDB().then(() => {
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
+  res.status(500).json({
+    message: err.message || 'Internal server error',
   });
 });
+
+/* -------------------- START SERVER FIRST -------------------- */
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+/* -------------------- CONNECT DATABASE -------------------- */
+connectDB()
+  .then(() => {
+    console.log('Database ready');
+  })
+  .catch((err) => {
+    console.error('Database startup error:', err);
+  });
