@@ -14,7 +14,7 @@ export const createHeroSlide = async (
   if (payload.order !== undefined) form.append('order', String(payload.order));
 
   const { data } = await apiClient.post<HeroSlide>('/api/hero-slides', form, {
-    headers: {},
+    headers: { 'Content-Type': 'multipart/form-data' },
   });
   return data;
 };
@@ -28,7 +28,7 @@ export const updateHeroSlide = async (
   if (payload.order !== undefined) form.append('order', String(payload.order));
 
   const { data } = await apiClient.put<HeroSlide>(`/api/hero-slides/${id}`, form, {
-    headers: {},
+    headers: { 'Content-Type': 'multipart/form-data' },
   });
   return data;
 };
