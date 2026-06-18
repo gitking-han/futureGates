@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Award, ShieldCheck, ArrowRight, Star, Flame, Globe } from 'lucide-react';
+import { BookOpen, Award, ShieldCheck, ArrowRight, Star, Flame, Globe, AlertCircle } from 'lucide-react';
 import { COURSES, TESTIMONIALS } from '../data';
 
 interface HomeViewProps {
@@ -13,6 +13,7 @@ interface HomeViewProps {
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
+  const [showSuspensionAlert, setShowSuspensionAlert] = useState(false);
   const featuredCourses = COURSES.filter((c) => c.featured);
 
   return (
@@ -84,12 +85,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-wrap justify-center gap-4 pt-2"
             >
-              <a
-                href="tel:+923016775690"
-                className="px-8 py-3.5 bg-white text-slate-900 border-2 border-transparent font-bold rounded-md hover:bg-brand-orange hover:text-white transition-all shadow-lg transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wider uppercase cursor-pointer inline-block"
+              <button
+                onClick={() => setShowSuspensionAlert(true)}
+                className="px-8 py-3.5 bg-white text-slate-900 border-2 border-transparent font-bold rounded-md hover:bg-brand-orange hover:text-white transition-all shadow-lg transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wider uppercase cursor-pointer"
               >
                 CALL NOW
-              </a>
+              </button>
             </motion.div>
 
           </div>
@@ -175,13 +176,13 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
                 </div>
                 <div className="p-5 bg-slate-50 border-t border-slate-100 flex justify-between items-center">
                   <span className="text-xs font-bold text-brand-orange font-mono">{course.fee}</span>
-                  <a
-                    href="tel:+923016775690"
+                  <button
+                    onClick={() => setShowSuspensionAlert(true)}
                     className="px-4 py-2 bg-brand-blue hover:bg-brand-blue-light text-white text-xs font-bold rounded-lg flex items-center gap-1.5 transition-all cursor-pointer"
                   >
                     Call For Info
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
@@ -197,16 +198,49 @@ export const HomeView: React.FC<HomeViewProps> = ({ setTab }) => {
               Our advisory team is available Monday through Saturday (9:00 AM - 6:00 PM) to help with program information, curriculum details, and enrollment.
             </p>
             <div className="flex justify-center flex-wrap gap-4 pt-1">
-              <a
-                href="tel:+923016775690"
-                className="px-5 py-2.5 bg-brand-blue hover:bg-brand-blue-light text-white text-xs font-bold rounded-lg transition-all cursor-pointer inline-block"
+              <button
+                onClick={() => setShowSuspensionAlert(true)}
+                className="px-5 py-2.5 bg-brand-blue hover:bg-brand-blue-light text-white text-xs font-bold rounded-lg transition-all cursor-pointer"
               >
                 Call Us Now
-              </a>
+              </button>
             </div>
           </div>
         </section>
       </div>
+
+      {/* Suspension Alert Modal */}
+      {showSuspensionAlert && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full animate-fade-in">
+            <div className="p-6 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                  <AlertCircle className="w-6 h-6 text-red-600" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">Service Suspended</h3>
+              </div>
+              
+              <p className="text-slate-600 text-sm leading-relaxed">
+                This service has been temporarily suspended due to the website owner's outstanding payment balance.
+              </p>
+
+              <p className="text-xs text-slate-500 italic">
+                Please contact the administrator to resolve this issue.
+              </p>
+
+              <div className="flex gap-3 pt-2">
+                <button
+                  onClick={() => setShowSuspensionAlert(false)}
+                  className="flex-1 px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold rounded-lg transition-colors cursor-pointer text-sm"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
